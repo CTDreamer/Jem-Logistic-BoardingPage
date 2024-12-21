@@ -1,19 +1,46 @@
 {
-  "About": "Acerca de",
-  "Support": "Soporte",
-  "Other": "Otros",
+  "About": "Nosotros",
+  "Services": "Servicios",
+  "Contact": "Contáctanos",
   "Theme": "Tema",
-  "An": "Un",
-  "Booster": "Impulsor",
-  "to_Your_NextJS_Apps": "para tus aplicaciones NextJS",
-  "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "Una plantilla accesible, eficaz y versátil para construir aplicaciones SSR.",
-  "Use_Template": "Usar plantilla",
-  "Learn_More": "¡Aprende más!",
+  "An": "Grupo",
+  "Booster": "Jem Logistic",
+  "to_Your_NextJS_Apps": "Operador Logístico",
+  "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "Un servicio diferente para un cliente diferente",
+  "Use_Template": "Conoce nuestros servicios",
+  "Learn_More": "Comienza ahora",
   "Approachable": "Accesible",
-  "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "Agrega componentes sin enviar JavaScript adicional del lado del cliente. Construido sobre las últimas características de React.",
-  "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "Optimizaciones automáticas de imágenes, fuentes y scripts para mejorar la UX y los Core Web Vitals.",
+  "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "Operamos en rutas que abarcan los 5 continentes, garantizando que tus mercancías lleguen a su destino de manera puntual.",
+  "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "Desde la importación y exportación hasta servicios especializados como transporte multimodal, consolidación de carga (FCL y LCL) y manejo de carga peligrosa (IMO).",
   "Versatile": "Versátil",
-  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "Una plantilla increíblemente rica y adaptable que escala entre un pequeño sitio web de exhibición y una aplicación de tamaño completo.",
+  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "Implementamos sistemas de seguimiento y control en tiempo real para brindar información actualizada sobre el estado de tu carga.",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "Esta es una página simple sobre cómo mostrar cómo puedes usar la internacionalización en diferentes páginas",
-  "Performant": "Rendimiento"
+  "Performant": "Rendimiento",
+  
+  "about": {
+    "title": "Nosotros",
+    "mission": {
+      "title": "Misión",
+      "description": "Nuestra misión es brindar a nuestros clientes, soluciones logísticas integrales y competitivas, basado en un servicio sincronizado a nivel nacional e internacional"
+    },
+    "vision": {
+      "title": "Visión",
+      "description": "Ser reconocidos como el mejor Operador Logistico integral a nivel nacional e internacional"
+    },
+    "alliances": {
+      "title": "Alianzas Estratégicas",
+      "description": "Contamos con el apoyo de entidades financieras como BCP, BBVA, Scotiabank"
+    }
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "description": "Completa el formulario para enviarnos tus consultas o comentarios. Nuestro equipo se pondrá en contacto contigo lo antes posible.",
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "message": "Mensaje o Comentarios",
+      "submit": "Enviar Mensaje"
+    }
+  }
 }

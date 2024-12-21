@@ -1,40 +1,42 @@
-import { ThemeProvider } from '@/src/app/[locale]/components/ThemeProvider'
-import type { Metadata } from 'next'
+import { ThemeProvider } from '@/src/app/[locale]/components/ThemeProvider';
+import type { Metadata } from 'next';
 import {
   AbstractIntlMessages,
   NextIntlClientProvider,
   useMessages
-} from 'next-intl'
-import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
-import NextTopLoader from 'nextjs-toploader'
-import { Header } from './components/Header'
-import './globals.css'
+} from 'next-intl';
+import { Inter, Rubik, Space_Grotesk } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
+import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--inter'
-})
+});
 const rubik = Rubik({
   subsets: ['arabic'],
   variable: '--rubik'
-})
+});
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk'
-})
+});
 export const metadata: Metadata = {
-  title: 'Next Temp',
+  title: 'Jem Logistic',
   description: 'create next app By Yahya Parvar!'
-}
+};
 
 export default function RootLayout({
   children,
   params: { locale }
 }: {
-  children: React.ReactNode
-  params: { locale: string }
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
-  const messages = useMessages()
+  const messages = useMessages();
   return (
     <html
       lang={locale}
@@ -45,8 +47,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider
           enableSystem
-          attribute='class'
-          defaultTheme='light'
+          attribute="class"
+          defaultTheme="light"
           themes={[
             'light',
             'dark',
@@ -67,17 +69,20 @@ export default function RootLayout({
               crawlSpeed={200}
               height={3}
               crawl={true}
-              easing='ease'
+              easing="ease"
               speed={200}
-              shadow='0 0 10px #2299DD,0 0 5px #2299DD'
-              color='var(--primary)'
+              shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+              color="var(--primary)"
               showSpinner={false}
             />
             <Header locale={locale} />
-            <main className='mx-auto max-w-screen-2xl'>{children}</main>
+            <main className="mx-auto max-w-screen-2xl">{children}</main>
+            <Footer />
+            {/* WhatsApp Button */}
+            <WhatsAppButton />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

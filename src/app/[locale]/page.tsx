@@ -20,18 +20,15 @@ export default function DashboardPage() {
           )}
         </div>
         <div className='mt-4 flex flex-row gap-4'>
-          <a
-            href='https://github.com/new?template_name=nextjs-template&template_owner=yahyaparvar'
-            target='_blank'
-          >
+          {/* Botón para redirigir a "Nosotros" */}
+          <a href='/es/about'>
             <Button rounded size='large'>
               {t('Use_Template')}
             </Button>
           </a>
-          <a
-            href='https://github.com/yahyaparvar/nextjs-template'
-            target='_blank'
-          >
+          
+          {/* Botón para redirigir a "Servicios" */}
+          <a href='/es/services'>
             <Button rounded size='large' variant='secondary'>
               {t('Learn_More')}
             </Button>
