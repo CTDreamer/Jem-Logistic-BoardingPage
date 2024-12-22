@@ -16,9 +16,17 @@
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "Implementamos sistemas de seguimiento y control en tiempo real para brindar información actualizada sobre el estado de tu carga.",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "Esta es una página simple sobre cómo mostrar cómo puedes usar la internacionalización en diferentes páginas",
   "Performant": "Rendimiento",
-  
+  "language": {
+    "language": "Idioma",
+    "languages": {
+      "english": "Inglés",
+      "spanish": "Español",
+      "chinese": "Chino"
+    }
+  },
   "about": {
     "title": "Nosotros",
+    "intro": "Somos un operador logístico líder con más de 20 años de experiencia en servicios de transporte, aduanas y carga internacional. Nuestro compromiso es ofrecer soluciones integrales y adaptadas a las necesidades de nuestros clientes.",
     "mission": {
       "title": "Misión",
       "description": "Nuestra misión es brindar a nuestros clientes, soluciones logísticas integrales y competitivas, basado en un servicio sincronizado a nivel nacional e internacional"
@@ -30,7 +38,24 @@
     "alliances": {
       "title": "Alianzas Estratégicas",
       "description": "Contamos con el apoyo de entidades financieras como BCP, BBVA, Scotiabank"
+    },
+    "history": {
+      "title": "Nuestra Historia",
+      "description": "Desde nuestros inicios, hemos trabajado para ofrecer soluciones logísticas innovadoras y personalizadas. Nuestra experiencia nos ha permitido convertirnos en un socio estratégico confiable para empresas de todos los tamaños."
+    },
+    "globalNetwork": {
+      "title": "Nuestra Red Global",
+      "description": "Con presencia en los 5 continentes y más de 94 países, nuestra red internacional garantiza la cobertura logística que tu negocio necesita para crecer en un mercado globalizado."
+    },
+    "cta": {
+      "title": "¿Listo para optimizar tu logística?",
+      "description": "Descubre cómo nuestras soluciones pueden marcar la diferencia en tu negocio.",
+      "button": "Descubre Nuestros Servicios"
     }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "description": "Descubre las soluciones logísticas que ofrecemos para optimizar tu negocio."
   },
   "contact": {
     "title": "Contáctanos",

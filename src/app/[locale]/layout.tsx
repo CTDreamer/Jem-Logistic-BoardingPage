@@ -10,6 +10,8 @@ import NextTopLoader from 'nextjs-toploader';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import 'react-toastify/dist/ReactToastify.css'; // Importación de estilos para react-toastify
+import { ToastContainer } from 'react-toastify';
 import './globals.css';
 
 const inter = Inter({
@@ -64,6 +66,19 @@ export default function RootLayout({
             locale={locale}
             messages={messages as AbstractIntlMessages}
           >
+            {/* Contenedor de notificaciones */}
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
             <NextTopLoader
               initialPosition={0.08}
               crawlSpeed={200}

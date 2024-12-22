@@ -1,9 +1,10 @@
 import { getRequestConfig } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
-export const locales = ['en', 'fr', 'ja', 'de', 'ru', 'es',"fa","ar"]
+// Solo soportar inglés, español y chino
+export const locales = ['en', 'es', 'zh']
 export default getRequestConfig(async ({ locale }) => {
-  // Validate that the incoming `locale` parameter is valid
+  // Validar que el parámetro `locale` sea válido
   if (!locales.includes(locale as any)) notFound()
 
   return {

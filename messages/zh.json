@@ -1,0 +1,72 @@
+{
+  "About": "关于我们",
+  "Services": "服务",
+  "Contact": "联系我们",
+  "Theme": "主题",
+  "An": "一个",
+  "Booster": "Jem Logistic",
+  "to_Your_NextJS_Apps": "物流运营商",
+  "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "为不同的客户提供不同的服务",
+  "Use_Template": "了解我们的服务",
+  "Learn_More": "立即开始",
+  "Approachable": "易接近",
+  "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "我们运营的路线覆盖五大洲，确保您的货物准时送达目的地。",
+  "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "从进出口到专业服务，如多式联运、货物拼装 (FCL 和 LCL)、危险货物运输 (IMO)。",
+  "Versatile": "多功能",
+  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "我们实施了实时跟踪和控制系统，为您的货物状态提供最新信息。",
+  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "这是一个简单的关于页面，用于展示如何在不同页面中使用国际化。",
+  "Performant": "性能",
+  "language": {
+    "language": "语言",
+    "languages": {
+      "english": "英语",
+      "spanish": "西班牙语",
+      "chinese": "中文"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "intro": "我们是一家拥有超过 20 年运输、清关和国际货运服务经验的领先物流运营商。我们致力于提供全面和定制化的解决方案，以满足客户的需求。",
+    "mission": {
+      "title": "使命",
+      "description": "我们的使命是为客户提供全面且具有竞争力的物流解决方案，基于国内和国际同步的服务。"
+    },
+    "vision": {
+      "title": "愿景",
+      "description": "成为国内和国际公认的最佳综合物流运营商。"
+    },
+    "alliances": {
+      "title": "战略联盟",
+      "description": "我们得到了诸如 BCP、BBVA 和 Scotiabank 等金融机构的支持。"
+    },
+    "history": {
+      "title": "我们的历史",
+      "description": "自公司成立以来，我们一直致力于提供创新和定制化的物流解决方案。丰富的经验使我们成为各类企业的可靠战略合作伙伴。"
+    },
+    "globalNetwork": {
+      "title": "我们的全球网络",
+      "description": "覆盖五大洲和超过 94 个国家，我们的国际网络保证了您的业务在全球化市场中的物流覆盖需求。"
+    },
+    "cta": {
+      "title": "准备好优化您的物流了吗？",
+      "description": "了解我们的解决方案如何为您的业务带来不同。",
+      "button": "探索我们的服务"
+    }
+  },
+  "services": {
+    "title": "我们的服务",
+    "description": "发现我们提供的物流解决方案，以优化您的业务。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "填写表单以向我们发送您的问题或意见。我们的团队会尽快与您联系。",
+    "form": {
+      "name": "全名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "message": "留言或意见",
+      "submit": "发送信息"
+    }
+  }
+}
+  

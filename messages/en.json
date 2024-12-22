@@ -1,4 +1,52 @@
 {
+  "language": {
+    "language": "Language",
+    "languages": {
+      "english": "English",
+      "spanish": "Spanish",
+      "chinese": "Chinese"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "intro": "We are a leading logistics operator with more than 20 years of experience in transportation, customs, and international freight services. Our commitment is to offer comprehensive solutions tailored to our clients' needs.",
+    "mission": {
+      "title": "Mission",
+      "description": "Our mission is to provide our clients with comprehensive and competitive logistics solutions, based on a synchronized service at both national and international levels."
+    },
+    "vision": {
+      "title": "Vision",
+      "description": "To be recognized as the best comprehensive Logistics Operator at both national and international levels."
+    },
+    "alliances": {
+      "title": "Strategic Alliances",
+      "description": "We have the support of financial entities such as BCP, BBVA, and Scotiabank."
+    },
+    "history": {
+      "title": "Our History",
+      "description": "Since our beginnings, we have worked to provide innovative and personalized logistics solutions. Our experience has allowed us to become a reliable strategic partner for companies of all sizes."
+    },
+    "globalNetwork": {
+      "title": "Our Global Network",
+      "description": "With presence in 5 continents and more than 94 countries, our international network guarantees the logistics coverage your business needs to grow in a globalized market."
+    },
+    "cta": {
+      "title": "Ready to optimize your logistics?",
+      "description": "Discover how our solutions can make a difference in your business.",
+      "button": "Discover Our Services"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Fill out the form to send us your inquiries or comments. Our team will get in touch with you as soon as possible.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message or Comments",
+      "submit": "Send Message"
+    }
+  },
   "About": "About",
   "Support": "Support",
   "Other": "Other",
