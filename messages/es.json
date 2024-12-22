@@ -16,6 +16,11 @@
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "Implementamos sistemas de seguimiento y control en tiempo real para brindar información actualizada sobre el estado de tu carga.",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "Esta es una página simple sobre cómo mostrar cómo puedes usar la internacionalización en diferentes páginas",
   "Performant": "Rendimiento",
+  "header": {
+    "About": "Nosotros",
+    "Services": "Servicios",
+    "Contact": "Contáctanos"
+  },
   "language": {
     "language": "Idioma",
     "languages": {
@@ -54,18 +59,64 @@
     }
   },
   "services": {
-    "title": "Nuestros Servicios",
-    "description": "Descubre las soluciones logísticas que ofrecemos para optimizar tu negocio."
+    "header": {
+      "title": "Soluciones Integrales",
+      "subtitle": "Encuentra las soluciones logísticas más adecuadas para tu empresa."
+    },
+    "services": {
+      "customs": {
+        "title": "Agenciamiento de Aduanas",
+        "description": "Facilitamos todas las gestiones aduaneras, cumpliendo con las normativas y requisitos legales vigentes."
+      },
+      "freight": {
+        "title": "Fletes Internacionales",
+        "description": "Ofrecemos transporte de carga internacional con el respaldo de alianzas estratégicas que aseguran una gestión eficiente de envíos."
+      },
+      "consulting": {
+        "title": "Asesoría en Comercio Exterior",
+        "description": "Brindamos apoyo especializado en normativa y procesos aduaneros, manteniéndote actualizado sobre cambios en regulaciones."
+      },
+      "transport": {
+        "title": "Transporte de Carga",
+        "description": "Ofrecemos traslado de cargas ligeras y pesadas con seguimiento GPS y altos estándares de calidad en logística internacional."
+      },
+      "packaging": {
+        "title": "Embaladora a Todo Destino",
+        "description": "Garantizamos un embalaje profesional para productos peruanos destinados a cualquier parte del mundo."
+      }
+    },
+    "cta": {
+      "button": "Contáctanos"
+    }
   },
   "contact": {
     "title": "Contáctanos",
-    "description": "Completa el formulario para enviarnos tus consultas o comentarios. Nuestro equipo se pondrá en contacto contigo lo antes posible.",
+    "description": "Estamos aquí para ayudarte. Por favor llena el formulario.",
     "form": {
-      "name": "Nombre Completo",
-      "email": "Correo Electrónico",
-      "phone": "Teléfono",
-      "message": "Mensaje o Comentarios",
-      "submit": "Enviar Mensaje"
+      "nombre": "Nombre Completo",
+      "correo": "Correo Electrónico",
+      "telefono": "Teléfono",
+      "mensaje": "Mensaje",
+      "nombrePlaceholder": "Escribe tu nombre completo",
+      "correoPlaceholder": "ejemplo@correo.com",
+      "telefonoPlaceholder": "Número de teléfono",
+      "mensajePlaceholder": "Déjanos tu consulta o comentario aquí...",
+      "enviar": "Enviar Mensaje"
+    },
+    "errors": {
+      "nombreLetras": "El nombre solo debe contener letras y espacios.",
+      "nombreObligatorio": "El nombre es obligatorio.",
+      "correoInvalido": "El correo no es válido.",
+      "telefonoEspacios": "No se permiten espacios en el teléfono.",
+      "telefonoNumerico": "El teléfono debe ser numérico.",
+      "mensajeObligatorio": "El mensaje es obligatorio.",
+      "mensajePalabras": "El mensaje no puede tener más de 150 palabras.",
+      "corregirErrores": "Por favor corrige los errores antes de enviar.",
+      "envioError": "Error al enviar el mensaje.",
+      "servidorError": "Hubo un error al enviar el formulario."
+    },
+    "success": {
+      "mensajeEnviado": "Mensaje enviado correctamente."
     }
   }
 }

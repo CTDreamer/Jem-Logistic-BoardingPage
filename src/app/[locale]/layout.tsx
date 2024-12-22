@@ -22,13 +22,14 @@ const rubik = Rubik({
   subsets: ['arabic'],
   variable: '--rubik'
 });
-const space_grotesk = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk'
 });
+
 export const metadata: Metadata = {
   title: 'Jem Logistic',
-  description: 'create next app By Yahya Parvar!'
+  description: 'Find the best logistics solutions with Jem Logistic.'
 };
 
 export default function RootLayout({
@@ -38,15 +39,21 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  // Mensajes para la internacionalización
   const messages = useMessages();
+
+  // Dirección del idioma (LTR o RTL)
+  const isRTL = locale === 'ar' || locale === 'fa';
+
   return (
     <html
       lang={locale}
-      dir={locale === 'ar' || locale == 'fa' ? 'rtl' : 'ltr'}
-      className={`${space_grotesk.variable} ${rubik.variable} scroll-smooth`}
+      dir={isRTL ? 'rtl' : 'ltr'}
+      className={`${spaceGrotesk.variable} ${rubik.variable} ${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body>
+        {/* Proveedor del tema */}
         <ThemeProvider
           enableSystem
           attribute="class"
@@ -62,6 +69,7 @@ export default function RootLayout({
             'reddit'
           ]}
         >
+          {/* Proveedor de internacionalización */}
           <NextIntlClientProvider
             locale={locale}
             messages={messages as AbstractIntlMessages}
@@ -73,27 +81,38 @@ export default function RootLayout({
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
-              rtl={false}
+              rtl={isRTL}
               pauseOnFocusLoss
               draggable
               pauseOnHover
               theme="colored"
             />
+
+            {/* Indicador de carga superior */}
             <NextTopLoader
               initialPosition={0.08}
               crawlSpeed={200}
               height={3}
-              crawl={true}
+              crawl
               easing="ease"
               speed={200}
               shadow="0 0 10px #2299DD,0 0 5px #2299DD"
               color="var(--primary)"
               showSpinner={false}
             />
+
+            {/* Encabezado */}
             <Header locale={locale} />
-            <main className="mx-auto max-w-screen-2xl">{children}</main>
+
+            {/* Contenido principal */}
+            <main className="mx-auto max-w-screen-2xl px-4 md:px-8">
+              {children}
+            </main>
+
+            {/* Pie de página */}
             <Footer />
-            {/* WhatsApp Button */}
+
+            {/* Botón flotante de WhatsApp */}
             <WhatsAppButton />
           </NextIntlClientProvider>
         </ThemeProvider>

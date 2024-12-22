@@ -1,29 +1,27 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
-import { locales } from './i18n'; // Importar la lista de locales permitidos desde i18n.ts
+import { NextRequest, NextResponse } from 'next/server';
 
-// Middleware personalizado para logs adicionales (opcional)
-const customMiddleware = async (req: NextRequest): Promise<NextRequest> => {
-  console.log('Custom middleware executed before next-intl');
-  console.log('Request URL:', req.url); // Log para depurar la URL de la solicitud
-  return req;
-};
-
-// Crear middleware de internacionalización
 const intlMiddleware = createMiddleware({
-  locales, // Idiomas soportados ['en', 'es', 'zh']
-  defaultLocale: 'en', // Idioma predeterminado
+  locales: ['en', 'es', 'zh'], // Idiomas soportados
+  defaultLocale: 'es', // Idioma predeterminado
 });
 
-// Middleware principal
-export default async function middleware(
-  req: NextRequest
-): Promise<ReturnType<typeof intlMiddleware>> {
-  await customMiddleware(req); // Ejecutar middleware personalizado antes del middleware de internacionalización
-  return intlMiddleware(req); // Pasar al middleware de internacionalización
+export default function middleware(req: NextRequest) {
+  const locale = req.nextUrl.pathname.split('/')[1]; // Extraer el idioma de la URL
+  console.log('Detected language in middleware:', locale);
+
+  // Redirigir si no hay un idioma válido
+  if (!['en', 'es', 'zh'].includes(locale)) {
+    const url = new URL(`/es${req.nextUrl.pathname}`, req.url);
+    console.log('Redirecting to:', url.toString());
+    return NextResponse.redirect(url);
+  }
+
+  return intlMiddleware(req);
 }
 
-// Configuración del matcher para soportar solo los idiomas definidos
 export const config = {
-  matcher: ['/', '/(en|es|zh)/:path*'], // Solo permitir rutas para inglés, español y chino
+  matcher: ['/', '/(en|es|zh)/:path*'], // Rutas soportadas
 };
+
+
