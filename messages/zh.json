@@ -16,6 +16,11 @@
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "我们实施了实时跟踪和控制系统，为您的货物状态提供最新信息。",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "这是一个简单的关于页面，用于展示如何在不同页面中使用国际化。",
   "Performant": "性能",
+  "header": {
+    "About": "关于我们",
+    "Services": "服务",
+    "Contact": "联系我们"
+  },
   "language": {
     "language": "语言",
     "languages": {
@@ -59,13 +64,63 @@
   },
   "contact": {
     "title": "联系我们",
-    "description": "填写表单以向我们发送您的问题或意见。我们的团队会尽快与您联系。",
+    "description": "我们在这里为您提供帮助。请填写表格。",
     "form": {
-      "name": "全名",
-      "email": "电子邮件",
-      "phone": "电话",
-      "message": "留言或意见",
-      "submit": "发送信息"
+      "nombre": "全名",
+      "correo": "电子邮件地址",
+      "telefono": "电话号码",
+      "mensaje": "留言",
+      "nombrePlaceholder": "请输入您的全名",
+      "correoPlaceholder": "example@email.com",
+      "telefonoPlaceholder": "电话号码",
+      "mensajePlaceholder": "在此处留下您的询问或评论...",
+      "enviar": "发送留言"
+    },
+    "errors": {
+      "nombreLetras": "姓名只能包含字母和空格。",
+      "nombreObligatorio": "姓名是必填项。",
+      "correoInvalido": "电子邮件地址无效。",
+      "telefonoEspacios": "电话号码中不允许有空格。",
+      "telefonoNumerico": "电话号码必须是数字。",
+      "mensajeObligatorio": "留言是必填项。",
+      "mensajePalabras": "留言不能超过150个字。",
+      "corregirErrores": "请先更正错误再发送。",
+      "envioError": "发送留言时出错。",
+      "servidorError": "发送表单时发生错误。"
+    },
+    "success": {
+      "mensajeEnviado": "留言已成功发送。"
+    }
+  },
+  "services": {
+    "header": {
+      "title": "综合解决方案",
+      "subtitle": "为您的公司寻找最合适的物流解决方案。"
+    },
+    "services": {
+      "customs": {
+        "title": "海关代理",
+        "description": "我们协助完成所有海关手续，遵守现行法规和法律要求。"
+      },
+      "freight": {
+        "title": "国际货运",
+        "description": "我们提供国际货运服务，并通过战略联盟确保高效的货运管理。"
+      },
+      "consulting": {
+        "title": "外贸咨询",
+        "description": "我们在法规和海关流程方面提供专业支持，让您随时了解法律的变化。"
+      },
+      "transport": {
+        "title": "货物运输",
+        "description": "我们提供轻型和重型货物运输服务，配备 GPS 跟踪和国际物流的高质量标准。"
+      },
+      "packaging": {
+        "title": "面向所有目的地的包装服务",
+        "description": "我们确保为运往世界各地的秘鲁产品提供专业的包装服务。"
+      }
+    },
+    "cta": {
+      "button": "联系我们"
     }
   }
 }
