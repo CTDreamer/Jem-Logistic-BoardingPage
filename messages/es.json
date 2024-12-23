@@ -7,8 +7,8 @@
   "Booster": "Jem Logistic",
   "to_Your_NextJS_Apps": "Operador Logístico",
   "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "Un servicio diferente para un cliente diferente",
-  "Use_Template": "Conoce nuestros servicios",
-  "Learn_More": "Comienza ahora",
+  "Use_Services": "Conoce nuestros servicios",
+  "Learn_More": "Conócenos",
   "Approachable": "Accesible",
   "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "Operamos en rutas que abarcan los 5 continentes, garantizando que tus mercancías lleguen a su destino de manera puntual.",
   "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "Desde la importación y exportación hasta servicios especializados como transporte multimodal, consolidación de carga (FCL y LCL) y manejo de carga peligrosa (IMO).",
@@ -118,5 +118,10 @@
     "success": {
       "mensajeEnviado": "Mensaje enviado correctamente."
     }
-  }
+  },
+  "Our_Location": "Nuestra Ubicación",
+  "Visit_Us_Description": "Visítanos en nuestra oficina corporativa, convenientemente ubicada.",
+  "Opening_Hours": "Horarios de atención",
+  "Opening_Hours_Details": "L a V de 8:30 am a 6:15 pm y sábados de 8:40 am a 12:00 pm",
+  "Contact_Us": "Contáctanos"
 }

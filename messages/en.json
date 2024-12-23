@@ -1,4 +1,21 @@
 {
+  "About": "About Us",
+  "Services": "Services",
+  "Contact": "Contact Us",
+  "Theme": "Theme",
+  "An": "Group",
+  "Booster": "Jem Logistic",
+  "to_Your_NextJS_Apps": "Logistics Operator",
+  "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "A different service for a different client",
+  "Use_Services": "Discover Our Services",
+  "Learn_More": "Get to Know Us",
+  "Approachable": "Accessible",
+  "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "We operate on routes covering 5 continents, ensuring your goods reach their destination on time.",
+  "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "From import and export to specialized services such as multimodal transport, cargo consolidation (FCL and LCL), and hazardous cargo handling (IMO).",
+  "Versatile": "Versatile",
+  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "We implement real-time monitoring and control systems to provide updated information on the status of your cargo.",
+  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a simple about page to show how you can use internationalization on different pages.",
+  "Performant": "Performance",
   "header": {
     "About": "About Us",
     "Services": "Services",
@@ -14,7 +31,7 @@
   },
   "about": {
     "title": "About Us",
-    "intro": "We are a leading logistics operator with more than 20 years of experience in transportation, customs, and international freight services. Our commitment is to offer comprehensive solutions tailored to our clients' needs.",
+    "intro": "We are a leading logistics operator with over 20 years of experience in transportation, customs, and international freight services. Our commitment is to offer comprehensive solutions tailored to our clients' needs.",
     "mission": {
       "title": "Mission",
       "description": "Our mission is to provide our clients with comprehensive and competitive logistics solutions, based on a synchronized service at both national and international levels."
@@ -39,6 +56,37 @@
       "title": "Ready to optimize your logistics?",
       "description": "Discover how our solutions can make a difference in your business.",
       "button": "Discover Our Services"
+    }
+  },
+  "services": {
+    "header": {
+      "title": "Comprehensive Solutions",
+      "subtitle": "Find the most suitable logistics solutions for your company."
+    },
+    "services": {
+      "customs": {
+        "title": "Customs Brokerage",
+        "description": "We facilitate all customs procedures, complying with current regulations and legal requirements."
+      },
+      "freight": {
+        "title": "International Freight",
+        "description": "We offer international freight transportation backed by strategic alliances that ensure efficient shipment management."
+      },
+      "consulting": {
+        "title": "Trade Consulting",
+        "description": "We provide specialized support in regulations and customs processes, keeping you updated on changes in laws."
+      },
+      "transport": {
+        "title": "Cargo Transport",
+        "description": "We provide transportation for light and heavy cargo with GPS tracking and high-quality standards in international logistics."
+      },
+      "packaging": {
+        "title": "Global Packaging",
+        "description": "We ensure professional packaging for Peruvian products destined for any part of the world."
+      }
+    },
+    "cta": {
+      "button": "Contact Us"
     }
   },
   "contact": {
@@ -71,52 +119,9 @@
       "mensajeEnviado": "Message sent successfully."
     }
   },
-  "services": {
-    "header": {
-      "title": "Integrated Solutions",
-      "subtitle": "Find the most suitable logistics solutions for your company."
-    },
-    "services": {
-      "customs": {
-        "title": "Customs Brokerage",
-        "description": "We facilitate all customs procedures, complying with current regulations and legal requirements."
-      },
-      "freight": {
-        "title": "International Freight",
-        "description": "We offer international freight transportation backed by strategic alliances that ensure efficient shipment management."
-      },
-      "consulting": {
-        "title": "Trade Consulting",
-        "description": "We provide specialized support in regulations and customs processes, keeping you updated on changes in laws."
-      },
-      "transport": {
-        "title": "Cargo Transport",
-        "description": "We provide transportation for light and heavy cargo with GPS tracking and high-quality standards in international logistics."
-      },
-      "packaging": {
-        "title": "Packaging to All Destinations",
-        "description": "We ensure professional packaging for Peruvian products destined for any part of the world."
-      }
-    },
-    "cta": {
-      "button": "Contact Us"
-    }
-  },
-  "About": "About",
-  "Support": "Support",
-  "Other": "Other",
-  "Theme": "Theme",
-  "An": "A",
-  "Booster": "Booster",
-  "to_Your_NextJS_Apps": "to Your NextJS Apps",
-  "An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications": "An approachable, performant and versatile boilerplate for building SSR applications.",
-  "Use_Template": "Use Template",
-  "Learn_More": "Learn More!",
-  "Approachable": "Approachable",
-  "Add_components_without_sending_additional_client_side_JavaScript_Built_on_the_latest_React_features": "Add components without sending additional client-side JavaScript. Built on the latest React features.",
-  "Automatic_Image_Font_and_Script_Optimizations_for_improved_UX_and_Core_Web_Vitals": "Automatic Image, Font, and Script Optimizations for improved UX and Core Web Vitals.",
-  "Versatile": "Versatile",
-  "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "A rich, incredibly adoptable template that scales between a small showcase website and a full-size app.",
-  "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a simple about page just to show how you can use the internationalization in different pages",
-  "Performant": "Performant"
+  "Our_Location": "Our Location",
+  "Visit_Us_Description": "Visit us at our corporate office, conveniently located.",
+  "Opening_Hours": "Opening Hours",
+  "Opening_Hours_Details": "Mon to Fri 8:30 am to 6:15 pm, Sat 8:40 am to 12:00 pm",
+  "Contact_Us": "Contact Us"
 }
