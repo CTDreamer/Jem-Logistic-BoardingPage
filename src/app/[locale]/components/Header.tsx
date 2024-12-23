@@ -12,10 +12,10 @@ interface Props {
 export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('header');
   const [isVisible, setIsVisible] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Mostrar el header solo si el usuario está cerca de la parte superior
       if (window.scrollY <= 50) {
         setIsVisible(true);
       } else {
@@ -24,12 +24,15 @@ export const Header: FC<Props> = ({ locale }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll); // Limpiar evento
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
 
   return (
     <>
-      {/* Header que solo aparece al inicio */}
       <header
         className={`bg-gradient-to-r from-blue-50 to-blue-100 shadow-lg fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
@@ -48,8 +51,8 @@ export const Header: FC<Props> = ({ locale }) => {
             </div>
           </Link>
 
-          {/* Navegación */}
-          <nav className="hidden md:flex gap-8">
+          {/* Navegación (Desktop) */}
+          <div className="hidden md:flex flex-1 justify-center gap-10">
             <Link href={`/${locale}/about`} passHref>
               <span className="text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer">
                 {t('About')}
@@ -65,16 +68,73 @@ export const Header: FC<Props> = ({ locale }) => {
                 {t('Contact')}
               </span>
             </Link>
-          </nav>
+          </div>
 
-          {/* Botones */}
-          <div className="flex items-center gap-4">
+          {/* Selector de idioma (Desktop) */}
+          <div className="hidden md:flex items-center gap-4">
             <LangSwitcher />
           </div>
+
+          {/* Botón de menú móvil */}
+          <button
+            className="md:hidden flex items-center justify-center w-12 h-12 text-blue-700 bg-blue-100 rounded-md shadow-lg"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
         </div>
+
+        {/* Menú desplegable móvil */}
+        {isMenuOpen && (
+          <nav className="md:hidden bg-blue-50 p-5 shadow-md rounded-b-lg">
+            <Link href={`/${locale}/about`} passHref>
+              <span
+                onClick={() => setIsMenuOpen(false)} // Cerrar menú al hacer clic
+                className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2"
+              >
+                {t('About')}
+              </span>
+            </Link>
+            <Link href={`/${locale}/services`} passHref>
+              <span
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2"
+              >
+                {t('Services')}
+              </span>
+            </Link>
+            <Link href={`/${locale}/contact`} passHref>
+              <span
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2"
+              >
+                {t('Contact')}
+              </span>
+            </Link>
+
+            {/* Selector de idioma (Mobile) */}
+            <div className="mt-4">
+              <LangSwitcher />
+            </div>
+          </nav>
+        )}
       </header>
 
-      {/* Espaciado para evitar que el contenido quede oculto */}
+      {/* Espaciado para evitar contenido oculto */}
       <div className="h-20 md:h-24"></div>
     </>
   );
