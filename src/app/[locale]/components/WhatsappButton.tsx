@@ -1,5 +1,5 @@
 export const WhatsAppButton = () => {
-    const whatsappNumber = "+51907218115"; // Reemplaza con tu número de WhatsApp
+    const whatsappNumber = "+51998319641"; // Reemplaza con tu número de WhatsApp
     const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
   
     return (

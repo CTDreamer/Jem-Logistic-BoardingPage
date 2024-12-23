@@ -123,5 +123,9 @@
   "Visit_Us_Description": "Visit us at our corporate office, conveniently located.",
   "Opening_Hours": "Opening Hours",
   "Opening_Hours_Details": "Mon to Fri 8:30 am to 6:15 pm, Sat 8:40 am to 12:00 pm",
-  "Contact_Us": "Contact Us"
+  "Contact_Us": "Contact Us",
+  "footer": {
+    "Contact_Us": "Contact Us",
+    "All_Rights_Reserved": "All rights reserved."
+  }
 }

@@ -2,10 +2,8 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
-import GithubIcon from '../../icons/github';
 import LogoIcon from '../../icons/logo';
 import LangSwitcher from './LangSwitcher';
-import ThemeSwitch from './ThemeSwitch';
 
 interface Props {
   locale: string;
@@ -71,16 +69,7 @@ export const Header: FC<Props> = ({ locale }) => {
 
           {/* Botones */}
           <div className="flex items-center gap-4">
-            <ThemeSwitch />
             <LangSwitcher />
-            <a
-              href="https://github.com/yahyaparvar/nextjs-template"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 hover:bg-blue-200 transition-all duration-200 shadow-md"
-            >
-              <GithubIcon />
-            </a>
           </div>
         </div>
       </header>

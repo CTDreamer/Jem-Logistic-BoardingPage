@@ -108,13 +108,13 @@ export default function DashboardPage() {
           </p>
           <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg border border-gray-300 mb-6">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1148.7470592554367!2d-76.97370315827473!3d-12.125850799999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c88e8a3c52d7%3A0x42773bcb0bd372b5!2sJem%20Logistic%20Company!5e0!3m2!1sen!2spe!4v1681654017627!5m2!1sen!2spe"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d124864.628973481!2d-77.1235937!3d-12.0421677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c956caaab1ad%3A0x5fd2b64541849869!2sJos%C3%A9%20Amich%20174%2C%20Callao%2007006!5e0!3m2!1ses!2spe!4v1734914437338!5m2!1ses!2spe"
               width="100%"
               height="100%"
               allowFullScreen={true}
               loading="lazy"
               className="rounded-lg border-none"
-            ></iframe>
+            />
           </div>
           <a
             href="/es/contact"

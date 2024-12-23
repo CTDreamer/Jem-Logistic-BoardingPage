@@ -104,5 +104,9 @@
   "Visit_Us_Description": "欢迎访问我们方便的公司办公室。",
   "Opening_Hours": "营业时间",
   "Opening_Hours_Details": "周一至周五 上午8:30至下午6:15，周六 上午8:40至中午12:00",
-  "Contact_Us": "联系我们"
+  "Contact_Us": "联系我们",
+  "footer": {
+    "Contact_Us": "联系我们",
+    "All_Rights_Reserved": "版权所有。"
+  }
 }

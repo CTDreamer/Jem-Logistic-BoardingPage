@@ -123,5 +123,9 @@
   "Visit_Us_Description": "Visítanos en nuestra oficina corporativa, convenientemente ubicada.",
   "Opening_Hours": "Horarios de atención",
   "Opening_Hours_Details": "L a V de 8:30 am a 6:15 pm y sábados de 8:40 am a 12:00 pm",
-  "Contact_Us": "Contáctanos"
+  "Contact_Us": "Contáctanos",
+  "footer": {
+    "Contact_Us": "Contáctenos",
+    "All_Rights_Reserved": "Todos los derechos reservados."
+  }
 }
