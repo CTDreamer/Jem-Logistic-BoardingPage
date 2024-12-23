@@ -9,7 +9,7 @@ import { Inter, Rubik, Space_Grotesk } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { WhatsAppButton } from './components/WhatsAppButton';
+import { WhatsAppButton } from './components/WhatsappButton';
 import 'react-toastify/dist/ReactToastify.css'; // Importación de estilos para react-toastify
 import { ToastContainer } from 'react-toastify';
 import './globals.css';
