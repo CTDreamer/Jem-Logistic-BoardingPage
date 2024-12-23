@@ -22,7 +22,7 @@ export default function DashboardPage() {
             'An_approachable_performant_and_versatile_boilerplate_for_building_SSR_applications'
           )}
         </div>
-        <div className="mt-4 flex flex-col md:flex-row gap-4">
+        <div className="mt-4 flex flex-col items-center gap-4">
           <a href="/es/services">
             <Button
               rounded
