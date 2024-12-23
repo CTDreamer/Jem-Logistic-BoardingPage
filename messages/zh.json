@@ -93,30 +93,11 @@
     "title": "联系我们",
     "description": "我们在这里为您提供帮助。请填写表格。",
     "form": {
-      "nombre": "全名",
-      "correo": "电子邮件地址",
-      "telefono": "电话号码",
-      "mensaje": "留言",
-      "nombrePlaceholder": "请输入您的全名",
-      "correoPlaceholder": "example@email.com",
-      "telefonoPlaceholder": "电话号码",
-      "mensajePlaceholder": "在此处留下您的询问或评论...",
-      "enviar": "发送留言"
-    },
-    "errors": {
-      "nombreLetras": "姓名只能包含字母和空格。",
-      "nombreObligatorio": "姓名是必填项。",
-      "correoInvalido": "电子邮件地址无效。",
-      "telefonoEspacios": "电话号码中不允许有空格。",
-      "telefonoNumerico": "电话号码必须是数字。",
-      "mensajeObligatorio": "留言是必填项。",
-      "mensajePalabras": "留言不能超过150个字。",
-      "corregirErrores": "请先更正错误再发送。",
-      "envioError": "发送留言时出错。",
-      "servidorError": "发送表单时发生错误。"
-    },
-    "success": {
-      "mensajeEnviado": "留言已成功发送。"
+      "name": "全名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "message": "留言或意见",
+      "submit": "发送信息"
     }
   },
   "Our_Location": "我们的地址",

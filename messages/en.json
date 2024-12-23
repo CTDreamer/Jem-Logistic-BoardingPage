@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "About": "About Us",
   "Services": "Services",
   "Contact": "Contact Us",
@@ -16,6 +17,8 @@
   "A_rich_incredibly_adoptable_template_that_scales_between_a_small_showcase_website_and_a_full_size_app": "We implement real-time monitoring and control systems to provide updated information on the status of your cargo.",
   "This_is_a_simple_about_page_just_to_show_how_you_can_use_the_internationalization_in_different_pages": "This is a simple about page to show how you can use internationalization on different pages.",
   "Performant": "Performance",
+=======
+>>>>>>> aa9cfd907dff0658251ff008bb37eb6e314d0496
   "header": {
     "About": "About Us",
     "Services": "Services",
@@ -58,9 +61,45 @@
       "button": "Discover Our Services"
     }
   },
+<<<<<<< HEAD
   "services": {
     "header": {
       "title": "Comprehensive Solutions",
+=======
+  "contact": {
+    "title": "Contact Us",
+    "description": "We are here to help you. Please fill out the form.",
+    "form": {
+      "nombre": "Full Name",
+      "correo": "Email Address",
+      "telefono": "Phone Number",
+      "mensaje": "Message",
+      "nombrePlaceholder": "Enter your full name",
+      "correoPlaceholder": "example@email.com",
+      "telefonoPlaceholder": "Phone number",
+      "mensajePlaceholder": "Leave your inquiry or comment here...",
+      "enviar": "Send Message"
+    },
+    "errors": {
+      "nombreLetras": "The name should only contain letters and spaces.",
+      "nombreObligatorio": "The name is required.",
+      "correoInvalido": "The email address is invalid.",
+      "telefonoEspacios": "Spaces are not allowed in the phone number.",
+      "telefonoNumerico": "The phone number must be numeric.",
+      "mensajeObligatorio": "The message is required.",
+      "mensajePalabras": "The message cannot exceed 150 words.",
+      "corregirErrores": "Please correct the errors before sending.",
+      "envioError": "Error sending the message.",
+      "servidorError": "An error occurred while sending the form."
+    },
+    "success": {
+      "mensajeEnviado": "Message sent successfully."
+    }
+  },
+  "services": {
+    "header": {
+      "title": "Integrated Solutions",
+>>>>>>> aa9cfd907dff0658251ff008bb37eb6e314d0496
       "subtitle": "Find the most suitable logistics solutions for your company."
     },
     "services": {
@@ -81,7 +120,11 @@
         "description": "We provide transportation for light and heavy cargo with GPS tracking and high-quality standards in international logistics."
       },
       "packaging": {
+<<<<<<< HEAD
         "title": "Global Packaging",
+=======
+        "title": "Packaging to All Destinations",
+>>>>>>> aa9cfd907dff0658251ff008bb37eb6e314d0496
         "description": "We ensure professional packaging for Peruvian products destined for any part of the world."
       }
     },
