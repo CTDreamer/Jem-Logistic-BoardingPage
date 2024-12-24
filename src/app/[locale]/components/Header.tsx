@@ -40,7 +40,7 @@ export const Header: FC<Props> = ({ locale }) => {
       >
         <div className="mx-auto flex max-w-screen-2xl flex-row items-center justify-between p-5 lg:px-10">
           {/* Logo */}
-          <Link href="/" passHref>
+          <Link href={`/${locale}`} passHref>
             <div className="flex flex-row items-center cursor-pointer">
               <div className="h-12 w-12">
                 <LogoIcon />

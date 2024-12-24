@@ -42,8 +42,8 @@ export const Footer = () => {
 
       {/* Derechos Reservados */}
       <div className="mt-6 text-center text-xs text-gray-200 border-t border-gray-400 pt-4">
-        ©2024 <span className="text-yellow-400 font-bold">Jem Logistic</span> - {t('All_Rights_Reserved')} Diseñado por{' '}
-        <span className="text-yellow-400">CT</span>
+        ©2024 <span className="text-yellow-400 font-bold">Jem Logistic</span> - {t('All_Rights_Reserved')}{' '}
+        {t('Designed_By')} <span className="text-yellow-400">CT</span>
       </div>
     </footer>
   );

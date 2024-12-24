@@ -93,11 +93,30 @@
     "title": "联系我们",
     "description": "我们在这里为您提供帮助。请填写表格。",
     "form": {
-      "name": "全名",
-      "email": "电子邮件",
-      "phone": "电话",
-      "message": "留言或意见",
-      "submit": "发送信息"
+      "nombre": "全名",
+      "correo": "电子邮件",
+      "telefono": "电话号码",
+      "mensaje": "留言",
+      "nombrePlaceholder": "输入您的全名",
+      "correoPlaceholder": "示例@电子邮件.com",
+      "telefonoPlaceholder": "电话号码",
+      "mensajePlaceholder": "在此处留下您的查询或评论...",
+      "enviar": "发送留言"
+    },
+    "errors": {
+      "nombreLetras": "姓名只能包含字母和空格。",
+      "nombreObligatorio": "姓名是必填项。",
+      "correoInvalido": "电子邮件无效。",
+      "telefonoEspacios": "电话号码中不允许有空格。",
+      "telefonoNumerico": "电话号码必须是数字。",
+      "mensajeObligatorio": "留言是必填项。",
+      "mensajePalabras": "留言不能超过150个字。",
+      "corregirErrores": "请在发送前更正错误。",
+      "envioError": "发送留言时出错。",
+      "servidorError": "发送表单时出现错误。"
+    },
+    "success": {
+      "mensajeEnviado": "消息已成功发送。"
     }
   },
   "Our_Location": "我们的地址",
@@ -107,6 +126,7 @@
   "Contact_Us": "联系我们",
   "footer": {
     "Contact_Us": "联系我们",
-    "All_Rights_Reserved": "版权所有。"
+    "All_Rights_Reserved": "版权所有。",
+    "Designed_By": "设计者"
   }
 }
