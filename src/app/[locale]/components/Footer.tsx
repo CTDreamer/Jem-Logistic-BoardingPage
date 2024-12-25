@@ -26,7 +26,7 @@ export const Footer = () => {
             </li>
             <li className="flex items-center">
               <i className="fas fa-map-marker-alt text-yellow-400 mr-2"></i>
-              <span>Urb La Colonial Calle José Amich 174 - Callao</span>
+              <span>Urb La Colonial Calle José Amich 174 Dpto 2 - Callao</span>
             </li>
             <li className="flex items-center">
               <i className="fas fa-envelope text-yellow-400 mr-2"></i>
@@ -34,7 +34,7 @@ export const Footer = () => {
             </li>
             <li className="flex items-center">
               <i className="fas fa-envelope text-yellow-400 mr-2"></i>
-              <span>eduardoparedes@jemcargologistic.com</span>
+              <span>leslieparedes@jemcargologistic.com</span>
             </li>
           </ul>
         </div>
