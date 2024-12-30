@@ -190,6 +190,71 @@
   "footer": {
     "Contact_Us": "联系我们",
     "All_Rights_Reserved": "版权所有。",
-    "Designed_By": "设计者"
+    "Designed_By": "设计者",
+    "Claims_Book": "投诉簿",
+    "Claims_Book_Description": "根据消费者保护法，本机构提供投诉簿。请提交您的投诉或建议。"
+  },
+  "claimsBook": {
+    "name": "理賠簿",
+    "description": "请填写表格以登记您的投诉或建议。",
+    "title": "我们为您提供投诉登记簿",
+    "form": {
+      "nombre": "名字",
+      "apellidos": "姓氏",
+      "direccion": "地址",
+      "telefono": "电话号码",
+      "dni": "身份证号 / 护照号",
+      "correo": "电子邮件地址",
+      "bien": "商品类型",
+      "detalleBien": "商品描述",
+      "tipoReclamo": "投诉类型",
+      "detalleReclamo": "投诉详情",
+      "acciones": "供应商采取的措施",
+      "enviar": "提交",
+      "enviando": "提交中...",
+      "selectPlaceholder": "请选择一个选项",
+      "tipoReclamoInfo": {
+        "complaint": "投诉: 与产品或服务相关的不满。",
+        "claim": "抱怨: 与产品或服务无关的不满；或对公共服务的不满或不快。"
+      },
+      "placeholders": {
+        "nombre": "输入您的名字",
+        "apellidos": "输入您的姓氏",
+        "direccion": "输入您的地址",
+        "telefono": "输入您的电话号码",
+        "dni": "输入您的身份证号或护照号",
+        "correo": "输入您的电子邮件地址",
+        "detalleBien": "描述商品",
+        "detalleReclamo": "描述投诉详情",
+        "acciones": "描述供应商采取的措施"
+      },
+      "options": {
+        "product": "商品",
+        "service": "服务",
+        "complaint": "投诉",
+        "claim": "申诉"
+      },
+      "wordCount": "{count} / {max} 字"
+    },
+    "errors": {
+      "nombre": "名字是必填项。",
+      "apellidos": "姓氏是必填项。",
+      "direccion": "地址是必填项。",
+      "telefono": "电话号码是必填项。",
+      "dni": "身份证号 / 护照号是必填项。",
+      "correo": "电子邮件地址是必填项。",
+      "detalleBien": "商品描述是必填项。",
+      "tipoReclamo": "投诉类型是必填项。",
+      "detalleReclamo": "投诉详情是必填项。",
+      "acciones": "供应商的措施是必填项。",
+      "revisarErrores": "请在提交之前修正错误。",
+      "soloLetras": "仅允许字母和空格。",
+      "soloNumeros": "仅允许数字。",
+      "emailInvalido": "请输入有效的电子邮件地址。",
+      "limitePalabras": "描述不得超过150个字。"
+    },
+    "success": {
+      "mensajeEnviado": "您的投诉已成功提交！"
+    }
   }
 }

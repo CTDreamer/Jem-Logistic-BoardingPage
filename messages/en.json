@@ -190,6 +190,71 @@
   "footer": {
     "Contact_Us": "Contact Us",
     "All_Rights_Reserved": "All rights reserved.",
-    "Designed_By": "Designed by"
-  }
+    "Designed_By": "Designed by",
+    "Claims_Book": "Claims Book",
+    "Claims_Book_Description": "This establishment has a Claims Book at your disposal, in accordance with the Consumer Protection and Defense Code. Request it to register your complaint or claim."
+  },
+  "claimsBook": {
+      "name": "Claims Book",
+      "description": "Complete the form to register your complaint or claim.",
+      "title": "We put our complaints book at your disposal",
+      "form": {
+        "nombre": "Name",
+        "apellidos": "Last Name",
+        "direccion": "Address",
+        "telefono": "Phone Number",
+        "dni": "ID / Passport",
+        "correo": "Email Address",
+        "bien": "Type of Good",
+        "detalleBien": "Description of Good",
+        "tipoReclamo": "Type of Claim",
+        "detalleReclamo": "Claim Details",
+        "acciones": "Provider Actions",
+        "enviar": "Submit",
+        "enviando": "Sending...",
+        "selectPlaceholder": "Select an option",
+        "tipoReclamoInfo": {
+          "complaint": "Complaint: Disagreement related to the products or services.",
+          "claim": "Claim: Disagreement not related to the products or services; or dissatisfaction regarding public attention."
+        },
+        "placeholders": {
+          "nombre": "Enter your name",
+          "apellidos": "Enter your last name",
+          "direccion": "Enter your address",
+          "telefono": "Enter your phone number",
+          "dni": "Enter your ID or passport number",
+          "correo": "Enter your email address",
+          "detalleBien": "Describe the good",
+          "detalleReclamo": "Describe the claim details",
+          "acciones": "Describe the provider actions taken"
+        },
+        "options": {
+          "product": "Product",
+          "service": "Service",
+          "complaint": "Complaint",
+          "claim": "Claim"
+        },
+        "wordCount": "{count} out of {max} words"
+      },
+      "errors": {
+        "nombre": "The name is required.",
+        "apellidos": "The last name is required.",
+        "direccion": "The address is required.",
+        "telefono": "The phone number is required.",
+        "dni": "The ID / Passport is required.",
+        "correo": "The email address is required.",
+        "detalleBien": "The description of the good is required.",
+        "tipoReclamo": "The type of claim is required.",
+        "detalleReclamo": "The claim details are required.",
+        "acciones": "The provider actions are required.",
+        "revisarErrores": "Please check the errors before submitting.",
+        "soloLetras": "Only letters and spaces are allowed.",
+        "soloNumeros": "Only numbers are allowed.",
+        "emailInvalido": "Please enter a valid email address.",
+        "limitePalabras": "The description must not exceed 150 words."
+      },
+      "success": {
+        "mensajeEnviado": "Your claim has been successfully submitted!"
+      }
+    }
 }

@@ -188,8 +188,73 @@
   "Opening_Hours_Details": "L a V de 8:30 am a 6:15 pm y sábados de 8:40 am a 12:00 pm",
   "Contact_Us": "Contáctanos",
   "footer": {
-    "Contact_Us": "Contáctenos",
+    "Contact_Us": "Contáctanos",
     "All_Rights_Reserved": "Todos los derechos reservados.",
-    "Designed_By": "Diseñado por"
+    "Designed_By": "Diseñado por",
+    "Claims_Book": "Libro de Reclamaciones",
+    "Claims_Book_Description": "Este establecimiento cuenta con un Libro de Reclamaciones a tu disposición, conforme al Código de Protección y Defensa del Consumidor. Solicítalo para registrar tu queja o reclamo."
+  },
+  "claimsBook": {
+    "name": "Libro de Reclamaciones",
+    "description": "Por favor, completa el formulario para registrar tu queja o reclamo.",
+    "title": "Ponemos nuestro libro de reclamaciones a tu disposición",
+    "form": {
+      "nombre": "Nombre",
+      "apellidos": "Apellidos",
+      "direccion": "Dirección",
+      "telefono": "Número de Teléfono",
+      "dni": "DNI / Pasaporte",
+      "correo": "Correo Electrónico",
+      "bien": "Tipo de Bien",
+      "detalleBien": "Descripción del Bien",
+      "tipoReclamo": "Tipo de Reclamo",
+      "detalleReclamo": "Detalles del Reclamo",
+      "acciones": "Acciones del Proveedor",
+      "enviar": "Enviar",
+      "enviando": "Enviando...",
+      "selectPlaceholder": "Seleccione una opción",
+      "tipoReclamoInfo": {
+        "complaint": "Reclamo: Disconformidad relacionada a los productos o servicios.",                          
+        "claim": "Queja: Disconformidad no relacionada a los productos o servicios; o malestar o descontento respecto a la atención al público."
+      },
+      "placeholders": {
+        "nombre": "Ingresa tu nombre",
+        "apellidos": "Ingresa tus apellidos",
+        "direccion": "Ingresa tu dirección",
+        "telefono": "Ingresa tu número de teléfono",
+        "dni": "Ingresa tu DNI o pasaporte",
+        "correo": "Ingresa tu correo electrónico",
+        "detalleBien": "Describe el bien",
+        "detalleReclamo": "Describe los detalles del reclamo",
+        "acciones": "Describe las acciones tomadas por el proveedor"
+      },
+      "options": {
+        "product": "Producto",
+        "service": "Servicio",
+        "complaint": "Queja",
+        "claim": "Reclamo"
+      },
+      "wordCount": "{count} de {max} palabras"
+    },
+    "errors": {
+      "nombre": "El nombre es obligatorio.",
+      "apellidos": "Los apellidos son obligatorios.",
+      "direccion": "La dirección es obligatoria.",
+      "telefono": "El número de teléfono es obligatorio.",
+      "dni": "El DNI / Pasaporte es obligatorio.",
+      "correo": "El correo electrónico es obligatorio.",
+      "detalleBien": "La descripción del bien es obligatoria.",
+      "tipoReclamo": "El tipo de reclamo es obligatorio.",
+      "detalleReclamo": "Los detalles del reclamo son obligatorios.",
+      "acciones": "Las acciones del proveedor son obligatorias.",
+      "revisarErrores": "Por favor, corrige los errores antes de enviar.",
+      "soloLetras": "Solo se permiten letras y espacios.",
+      "soloNumeros": "Solo se permiten números.",
+      "emailInvalido": "Por favor, introduce un correo electrónico válido.",
+      "limitePalabras": "La descripción no debe exceder las 150 palabras."
+    },
+    "success": {
+      "mensajeEnviado": "¡Tu reclamo ha sido enviado con éxito!"
+    }
   }
 }
