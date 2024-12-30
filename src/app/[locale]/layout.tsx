@@ -112,8 +112,19 @@ export default function RootLayout({
             {/* Pie de página */}
             <Footer />
 
-            {/* Botón flotante de WhatsApp */}
-            <WhatsAppButton />
+            {/* Botón flotante de WhatsApp para Jem Logistic */}
+            <WhatsAppButton
+              number="+51998319641"
+              hoverText="Jem Logistic"
+              positionBottom={80} // Espaciado desde abajo
+            />
+
+            {/* Botón flotante de WhatsApp para Jem Cargo */}
+            <WhatsAppButton
+              number="+51946054805"
+              hoverText="Jem Cargo"
+              positionBottom={150} // Espaciado más arriba
+            />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
