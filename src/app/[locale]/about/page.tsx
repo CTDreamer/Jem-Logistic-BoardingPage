@@ -2,8 +2,9 @@ import { useTranslations } from 'next-intl';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Link from 'next/link';
 
-export default function About() {
+export default function About({ params }: { params: { locale: string } }) {
   const t = useTranslations('about'); // Namespace "about"
+  const locale = params.locale; // Obtenemos el locale actual
 
   return (
     <div className="px-8 md:px-16 py-12 bg-gray-50">
@@ -101,7 +102,7 @@ export default function About() {
         <p className="text-gray-600 mt-4">
           {t('cta.description')}
         </p>
-        <Link href="/es/services">
+        <Link href={`/${locale}/services`}>
           <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full mt-6 shadow-md transition-transform duration-300 transform hover:scale-105">
             {t('cta.button')}
           </button>
