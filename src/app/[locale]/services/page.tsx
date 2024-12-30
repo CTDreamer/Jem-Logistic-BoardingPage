@@ -1,11 +1,24 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { FaFileInvoice, FaShippingFast, FaTools, FaTruck, FaPlane, FaShip } from 'react-icons/fa';
+
+interface Subcategory {
+  subtitle: string;
+  details: string[];
+}
+
+interface Tarifa {
+  title: string;
+  details?: string[];
+  subcategories?: Subcategory[];
+  icon: JSX.Element;
+}
 
 export default function Services({
   params,
   searchParams,
 }: {
-  params: { locale: string }; // Cambiado a `locale`
+  params: { locale: string };
   searchParams: { tab?: string };
 }) {
   const t = useTranslations('services');
@@ -19,6 +32,87 @@ export default function Services({
     jemLogistic: 'bg-gradient-to-b from-blue-50 to-gray-100',
     jemCargo: 'bg-gradient-to-b from-green-50 to-gray-100',
   };
+
+  // Tarifas Jem Logistic
+  const tarifasLogistic: Tarifa[] = [
+    {
+      title: t('tariffs.import.title'),
+      details: [
+        t('tariffs.import.detail1'),
+        t('tariffs.import.detail2'),
+        t('tariffs.import.detail3'),
+      ],
+      icon: <FaFileInvoice />,
+    },
+    {
+      title: t('tariffs.export.title'),
+      details: [
+        t('tariffs.export.detail1'),
+        t('tariffs.export.detail2'),
+        t('tariffs.export.detail3'),
+      ],
+      icon: <FaShippingFast />,
+    },
+    {
+      title: t('tariffs.special.title'),
+      details: [
+        t('tariffs.special.detail1'),
+        t('tariffs.special.detail2'),
+        t('tariffs.special.detail3'),
+        t('tariffs.special.detail4'),
+      ],
+      icon: <FaTools />,
+    },
+  ];
+
+  // Tarifas Jem Cargo
+  const tarifasCargo: Tarifa[] = [
+    {
+      title: t('tariffs.maritime.title'),
+      subcategories: [
+        {
+          subtitle: t('tariffs.maritime.fcl.title'),
+          details: [
+            t('tariffs.maritime.fcl.detail1'),
+            t('tariffs.maritime.fcl.detail2'),
+            t('tariffs.maritime.fcl.detail3'),
+            t('tariffs.maritime.fcl.detail4'),
+          ],
+        },
+        {
+          subtitle: t('tariffs.maritime.lcl.title'),
+          details: [
+            t('tariffs.maritime.lcl.detail1'),
+            t('tariffs.maritime.lcl.detail2'),
+            t('tariffs.maritime.lcl.detail3'),
+            t('tariffs.maritime.lcl.detail4'),
+          ],
+        },
+      ],
+      icon: <FaShip />,
+    },
+    {
+      title: t('tariffs.air.title'),
+      details: [
+        t('tariffs.air.detail1'),
+        t('tariffs.air.detail2'),
+        t('tariffs.air.detail3'),
+        t('tariffs.air.detail4'),
+      ],
+      icon: <FaPlane />,
+    },
+    {
+      title: t('tariffs.land.title'),
+      details: [
+        t('tariffs.land.detail1'),
+        t('tariffs.land.detail2'),
+        t('tariffs.land.detail3'),
+      ],
+      icon: <FaTruck />,
+    },
+  ];
+
+  const tarifas = selectedTab === 'jemLogistic' ? tarifasLogistic : tarifasCargo;
 
   return (
     <section className={`px-8 py-16 ${tabBackgrounds[selectedTab]} transition-colors duration-500`}>
@@ -127,6 +221,57 @@ export default function Services({
             </div>
           </>
         )}
+      </div>
+
+      {/* Sección de Tarifas */}
+      <div className="mt-16">
+        <h2 className="text-3xl font-extrabold text-center text-blue-600 mb-8">{t('tariffs.title')}</h2>
+        <div className="text-md text-center text-gray-500 mb-6 italic space-y-2">
+          {selectedTab === 'jemLogistic' ? (
+            <>
+              <p>*{t('tariffs.note.logistic.dispatchTime')}</p>
+              <p>*{t('tariffs.note.validity')}</p>
+              <p>– {t('tariffs.note.noVAT')}</p>
+              <p>– {t('tariffs.note.negotiable')}</p>
+            </>
+          ) : (
+            <>
+              <p>*{t('tariffs.note.cargo.serviceTime')}</p>
+              <p>*{t('tariffs.note.validity')}</p>
+              <p>– {t('tariffs.note.noVAT')}</p>
+              <p>– {t('tariffs.note.negotiable')}</p>
+            </>
+          )}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tarifas.map((tarifa, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center"
+            >
+              <div className="mb-4 text-4xl text-blue-600">{tarifa.icon}</div>
+              <h3 className="text-xl font-semibold text-blue-600 mb-4">{tarifa.title}</h3>
+              {tarifa.subcategories ? (
+                tarifa.subcategories.map((subcategory, subIndex) => (
+                  <div key={subIndex} className="mb-4">
+                    <h4 className="text-lg font-medium text-gray-700 mb-2">{subcategory.subtitle}</h4>
+                    <ul className="list-disc pl-5 text-gray-600 space-y-1">
+                      {subcategory.details.map((detail, detailIndex) => (
+                        <li key={detailIndex}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <ul className="list-disc text-gray-600 space-y-1">
+                  {tarifa.details!.map((detail, detailIndex) => (
+                    <li key={detailIndex}>{detail}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Botón de acción rápida */}

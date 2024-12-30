@@ -85,6 +85,69 @@
         "description": "Garantizamos un embalaje profesional para productos peruanos destinados a cualquier parte del mundo."
       }
     },
+    "tariffs": {
+      "title": "Tarifas Generales",
+      "note": {
+        "logistic": {
+          "dispatchTime": "El tiempo promedio de despacho inicia una vez que recibimos los documentos e información completa."
+        },
+        "cargo": {
+          "serviceTime": "El tiempo promedio de atención en todas las jurisdicciones es de 48 horas."
+        },
+        "validity": "Válidas en todas las jurisdicciones en las que operamos, dependiendo del tipo de mercancía.",
+        "noVAT": "Las tarifas no incluyen IGV.",
+        "negotiable": "Todas las tarifas son negociables en función de valores, volumen o cantidad, y la complejidad de las operaciones."
+      },
+      "import": {
+        "title": "Importación",
+        "detail1": "0.6% Comisión CIF",
+        "detail2": "Comisión mínima USD 150.00",
+        "detail3": "Costos operativos USD 50.00"
+      },
+      "export": {
+        "title": "Exportación",
+        "detail1": "0.4% Comisión FOB",
+        "detail2": "Comisión mínima USD 120.00",
+        "detail3": "Costos operativos USD 50.00"
+      },
+      "special": {
+        "title": "Regímenes Especiales y/o Temporales",
+        "detail1": "0.7% Comisión CIF",
+        "detail2": "Comisión mínima USD 150.00",
+        "detail3": "Costos operativos USD 50.00",
+        "detail4": "Sujeto a revisión según complejidad."
+      },
+      "maritime": {
+        "title": "Transporte Marítimo (Importación/Exportación)",
+        "fcl": {
+          "title": "Carga FCL",
+          "detail1": "Manejo USD 95.00",
+          "detail2": "Transmisión USD 95.00",
+          "detail3": "Doc Fee USD 80.00",
+          "detail4": "Otros cargos según la naviera"
+        },
+        "lcl": {
+          "title": "Carga LCL",
+          "detail1": "Manejo USD 95.00",
+          "detail2": "Transmisión USD 95.00",
+          "detail3": "Doc Fee USD 65.00",
+          "detail4": "Otros cargos según NVOCC"
+        }
+      },
+      "air": {
+        "title": "Transporte Aéreo (Importación/Exportación)",
+        "detail1": "Manejo USD 115.00",
+        "detail2": "Transmisión USD 85.00",
+        "detail3": "Doc Fee USD 50.00",
+        "detail4": "Otros cargos según la aerolínea"
+      },
+      "land": {
+        "title": "Transporte Terrestre y Carga Proyecto",
+        "detail1": "Las tarifas están sujetas a revisión según ruta y requerimientos de operación.",
+        "detail2": "Las tarifas no incluyen IGV.",
+        "detail3": "Las tarifas de flete se determinan según ruta, tipo de carga, volumen, dimensiones y peso."
+      }
+    },
     "cta": {
       "button": "Contáctanos"
     }

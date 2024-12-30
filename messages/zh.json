@@ -85,6 +85,69 @@
         "description": "我们确保为运往世界各地的秘鲁产品提供专业的包装服务。"
       }
     },
+    "tariffs": {
+      "title": "一般费率",
+      "note": {
+        "logistic": {
+          "dispatchTime": "平均发货时间从我们收到完整的文件和信息后开始计算。"
+        },
+        "cargo": {
+          "serviceTime": "所有司法辖区的平均服务时间为48小时。"
+        },
+        "validity": "适用于我们运营的所有司法辖区，具体取决于货物类型。",
+        "noVAT": "费率不包括增值税。",
+        "negotiable": "所有费率均可根据货值、体积或数量以及操作复杂性协商确定。"
+      },
+      "import": {
+        "title": "进口",
+        "detail1": "0.6% CIF 佣金",
+        "detail2": "最低佣金 USD 150.00",
+        "detail3": "运营成本 USD 50.00"
+      },
+      "export": {
+        "title": "出口",
+        "detail1": "0.4% FOB 佣金",
+        "detail2": "最低佣金 USD 120.00",
+        "detail3": "运营成本 USD 50.00"
+      },
+      "special": {
+        "title": "特殊和/或临时制度",
+        "detail1": "0.7% CIF 佣金",
+        "detail2": "最低佣金 USD 150.00",
+        "detail3": "运营成本 USD 50.00",
+        "detail4": "根据复杂性进行审查。"
+      },
+      "maritime": {
+        "title": "海运（进口/出口）",
+        "fcl": {
+          "title": "整柜货物",
+          "detail1": "装卸费 USD 95.00",
+          "detail2": "传输费 USD 95.00",
+          "detail3": "文件费 USD 80.00",
+          "detail4": "其他费用根据船公司规定"
+        },
+        "lcl": {
+          "title": "拼柜货物",
+          "detail1": "装卸费 USD 95.00",
+          "detail2": "传输费 USD 95.00",
+          "detail3": "文件费 USD 65.00",
+          "detail4": "其他费用根据NVOCC规定"
+        }
+      },
+      "air": {
+        "title": "空运（进口/出口）",
+        "detail1": "装卸费 USD 115.00",
+        "detail2": "传输费 USD 85.00",
+        "detail3": "文件费 USD 50.00",
+        "detail4": "其他费用根据航空公司规定"
+      },
+      "land": {
+        "title": "陆运及项目货物",
+        "detail1": "费率根据路线和操作要求进行审查。",
+        "detail2": "费率不包括增值税。",
+        "detail3": "运费根据路线、货物类型、体积、尺寸和重量确定。"
+      }
+    },
     "cta": {
       "button": "联系我们"
     }

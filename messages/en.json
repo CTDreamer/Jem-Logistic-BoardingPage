@@ -1,5 +1,5 @@
 {
-  "About": "About Us",
+"About": "About Us",
   "Services": "Services",
   "Contact": "Contact Us",
   "Theme": "Theme",
@@ -85,10 +85,74 @@
         "description": "We ensure professional packaging for Peruvian products destined for any part of the world."
       }
     },
+    "tariffs": {
+      "title": "General Rates",
+      "note": {
+        "logistic": {
+          "dispatchTime": "The average dispatch time starts once we receive complete documents and information."
+        },
+        "cargo": {
+          "serviceTime": "The average service time across all jurisdictions is 48 hours."
+        },
+        "validity": "Valid in all jurisdictions where we operate, depending on the type of merchandise.",
+        "noVAT": "Rates do not include VAT.",
+        "negotiable": "All rates are negotiable based on values, volume or quantity, and the complexity of operations."
+      },
+      "import": {
+        "title": "Import",
+        "detail1": "0.6% CIF Commission",
+        "detail2": "Minimum Commission USD 150.00",
+        "detail3": "Operational Costs USD 50.00"
+      },
+      "export": {
+        "title": "Export",
+        "detail1": "0.4% FOB Commission",
+        "detail2": "Minimum Commission USD 120.00",
+        "detail3": "Operational Costs USD 50.00"
+      },
+      "special": {
+        "title": "Special and/or Temporary Regimes",
+        "detail1": "0.7% CIF Commission",
+        "detail2": "Minimum Commission USD 150.00",
+        "detail3": "Operational Costs USD 50.00",
+        "detail4": "Subject to revision based on complexity."
+      },
+      "maritime": {
+        "title": "Maritime Transport (Import/Export)",
+        "fcl": {
+          "title": "FCL Cargo",
+          "detail1": "Handling USD 95.00",
+          "detail2": "Transmission USD 95.00",
+          "detail3": "Doc Fee USD 80.00",
+          "detail4": "Other charges as per shipping line"
+        },
+        "lcl": {
+          "title": "LCL Cargo",
+          "detail1": "Handling USD 95.00",
+          "detail2": "Transmission USD 95.00",
+          "detail3": "Doc Fee USD 65.00",
+          "detail4": "Other charges as per NVOCC"
+        }
+      },
+      "air": {
+        "title": "Air Transport (Import/Export)",
+        "detail1": "Handling USD 115.00",
+        "detail2": "Transmission USD 85.00",
+        "detail3": "Doc Fee USD 50.00",
+        "detail4": "Other charges as per airline"
+      },
+      "land": {
+        "title": "Land Transport and Project Cargo",
+        "detail1": "Rates subject to revision based on route and operation requirements.",
+        "detail2": "Rates do not include VAT.",
+        "detail3": "Freight rates are determined based on route, cargo type, volume, dimensions, and weight."
+      }
+    },
     "cta": {
       "button": "Contact Us"
     }
   },
+
   "contact": {
     "title": "Contact Us",
     "description": "We are here to help you. Please fill out the form.",
@@ -123,7 +187,6 @@
   "Visit_Us_Description": "Visit us at our corporate office, conveniently located.",
   "Opening_Hours": "Opening Hours",
   "Opening_Hours_Details": "Mon to Fri 8:30 am to 6:15 pm, Sat 8:40 am to 12:00 pm",
-  "Contact_Us": "Contact Us",
   "footer": {
     "Contact_Us": "Contact Us",
     "All_Rights_Reserved": "All rights reserved.",
