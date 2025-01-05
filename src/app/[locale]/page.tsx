@@ -116,6 +116,24 @@ export default function DashboardPage() {
               className="rounded-lg border-none"
             />
           </div>
+        </div>
+        <div className="mx-auto max-w-screen-lg px-6 text-center">
+          <p className="text-gray-600 text-lg mb-4">
+            {t('Visit_Us_Description2')}
+          </p>
+          <p className="text-gray-600 mb-6">
+            <strong>{t('Opening_Hours')}:</strong> {t('Opening_Hours_Details')}
+          </p>
+          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg border border-gray-300 mb-6">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d434646.77562467306!2d-77.25490150993389!3d-12.138763416687944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDAxJzQ5LjYiUyA3N8KwMDUnNDEuMSJX!5e0!3m2!1ses!2spe!4v1736045290964!5m2!1ses!2spe"
+              width="100%"
+              height="100%"
+              allowFullScreen={true}
+              loading="lazy"
+              className="rounded-lg border-none"
+            />
+          </div>
           <a
             href="/es/contact"
             className="inline-block px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-105"

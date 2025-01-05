@@ -29,6 +29,10 @@ export const Footer = () => {
               <span>(+51) 998319641 y (+51) 946054805</span>
             </li>
             <li className="flex items-center">
+              <FaPhoneAlt className="text-yellow-400 mr-2" />
+              <span>(01) 2289207 y (+51) 1 2289207</span>
+            </li>
+            <li className="flex items-center">
               <FaMapMarkerAlt className="text-yellow-400 mr-2" />
               <span>Urb La Colonial Calle José Amich 174 Dpto 2 - Callao</span>
             </li>

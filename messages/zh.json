@@ -183,9 +183,10 @@
     }
   },
   "Our_Location": "我们的地址",
-  "Visit_Us_Description": "欢迎访问我们方便的公司办公室。",
+  "Visit_Us_Description": "请访问我们位于利马的公司办公室，位置便利",
+  "Visit_Us_Description2": "请访问我们位于钱凯的地点，随时准备提供服务",
   "Opening_Hours": "营业时间",
-  "Opening_Hours_Details": "周一至周五 上午8:30至下午6:15，周六 上午8:40至中午12:00",
+  "Opening_Hours_Details": "周一至周五上午 8:30 至下午 6:15，周六上午 8:40 至中午 12:00",
   "Contact_Us": "联系我们",
   "footer": {
     "Contact_Us": "联系我们",
