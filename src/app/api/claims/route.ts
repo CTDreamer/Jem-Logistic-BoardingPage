@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { query } from '@/src/db'; // Ajusta la ruta si tu archivo de conexión a la base de datos está en otro lugar
+import { query } from '@/db'; // Ajusta la ruta si tu archivo de conexión a la base de datos está en otro lugar
 
 // Manejo del método POST para el libro de reclamaciones
 export async function POST(request: Request) {

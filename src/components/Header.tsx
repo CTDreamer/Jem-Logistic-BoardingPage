@@ -2,8 +2,9 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { FC, useEffect, useState } from 'react';
-import LogoIcon from '../../icons/logo';
+import LogoIcon from '../app/icons/logo';
 import LangSwitcher from './LangSwitcher';
+import { useAuth } from '@/components/AuthProvider';
 
 interface Props {
   locale: string;
@@ -11,25 +12,18 @@ interface Props {
 
 export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('header');
+  const { user, logout } = useAuth();
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY <= 50) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY <= 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
 
   return (
     <>
@@ -70,15 +64,32 @@ export const Header: FC<Props> = ({ locale }) => {
             </Link>
           </div>
 
-          {/* Selector de idioma (Desktop) */}
+          {/* Botones de Autenticación */}
           <div className="hidden md:flex items-center gap-4">
             <LangSwitcher />
+
+            {user === undefined ? (
+              <span className="text-gray-500">Cargando...</span>
+            ) : user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-blue-700 font-medium">{user?.email}</span>
+                <button 
+                  onClick={logout} 
+                  className="bg-red-500 px-3 py-1 rounded text-white hover:bg-red-600 transition">
+                  {t('Logout')}
+                </button>
+              </div>
+            ) : (
+              <Link href={`/${locale}/login`} className="bg-blue-500 px-3 py-1 rounded text-white hover:bg-blue-600 transition">
+                {t('Login')}
+              </Link>
+            )}
           </div>
 
           {/* Botón de menú móvil */}
           <button
             className="md:hidden flex items-center justify-center w-12 h-12 text-blue-700 bg-blue-100 rounded-md shadow-lg"
-            onClick={toggleMenu}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
           >
             <svg
@@ -102,33 +113,34 @@ export const Header: FC<Props> = ({ locale }) => {
         {isMenuOpen && (
           <nav className="md:hidden bg-blue-50 p-5 shadow-md rounded-b-lg">
             <Link href={`/${locale}/about`} passHref>
-              <span
-                onClick={() => setIsMenuOpen(false)} // Cerrar menú al hacer clic
-                className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2"
-              >
+              <span className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2">
                 {t('About')}
               </span>
             </Link>
             <Link href={`/${locale}/services`} passHref>
-              <span
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2"
-              >
+              <span className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2">
                 {t('Services')}
               </span>
             </Link>
             <Link href={`/${locale}/contact`} passHref>
-              <span
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2"
-              >
+              <span className="block text-blue-700 font-medium hover:text-blue-900 transition-colors duration-200 cursor-pointer py-2">
                 {t('Contact')}
               </span>
             </Link>
 
-            {/* Selector de idioma (Mobile) */}
+            {/* Botones de autenticación en versión móvil */}
             <div className="mt-4">
-              <LangSwitcher />
+              {user ? (
+                <button 
+                  onClick={logout} 
+                  className="w-full bg-red-500 px-3 py-2 rounded text-white hover:bg-red-600 transition">
+                  {t('Logout')}
+                </button>
+              ) : (
+                <Link href={`/${locale}/login`} className="w-full block text-center bg-blue-500 px-3 py-2 rounded text-white hover:bg-blue-600 transition">
+                  {t('Login')}
+                </Link>
+              )}
             </div>
           </nav>
         )}

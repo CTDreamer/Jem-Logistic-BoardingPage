@@ -19,7 +19,8 @@
   "header": {
     "About": "About Us",
     "Services": "Services",
-    "Contact": "Contact Us"
+    "Contact": "Contact Us",
+    "Login": "Login"
   },
   "language": {
     "language": "Language",

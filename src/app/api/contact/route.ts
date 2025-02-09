@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { query } from '@/src/db'; // Asegúrate de que la ruta al archivo de conexión es correcta
+import { query } from '@/db'; // Asegúrate de que la ruta al archivo de conexión es correcta
 
 // Manejo del método POST
 export async function POST(request: Request) {

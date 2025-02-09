@@ -19,7 +19,8 @@
   "header": {
     "About": "关于我们",
     "Services": "服务",
-    "Contact": "联系我们"
+    "Contact": "联系我们",
+    "Login": "登入"
   },
   "language": {
     "language": "语言",

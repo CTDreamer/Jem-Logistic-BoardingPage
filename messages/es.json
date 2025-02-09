@@ -19,7 +19,8 @@
   "header": {
     "About": "Nosotros",
     "Services": "Servicios",
-    "Contact": "Contáctanos"
+    "Contact": "Contáctanos",
+    "Login": "Iniciar Sesion"
   },
   "language": {
     "language": "Idioma",

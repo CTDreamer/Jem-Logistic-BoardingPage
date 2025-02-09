@@ -1,13 +1,13 @@
-import { Pool } from 'pg';
+import { Pool, QueryResult, QueryResultRow } from 'pg';
 
 const pool = new Pool({
-  user: 'postgres', // Cambia esto
-  host: 'localhost',
-  database: 'contact_form', // Nombre de tu base de datos
-  password: 'dwbr', // Cambia esto
-  port: 5432, // Puerto predeterminado de PostgreSQL
+  user: process.env.NEXT_PUBLIC_DB_USER as string, 
+  host: process.env.NEXT_PUBLIC_DB_HOST as string,
+  database: process.env.NEXT_PUBLIC_DB_NAME as string,
+  password: process.env.NEXT_PUBLIC_DB_PASSWORD as string,
+  port: Number(process.env.NEXT_PUBLIC_DB_PORT), 
 });
 
-export const query = (text: string, params?: any[]) => {
-  return pool.query(text, params);
+export const query = async <T extends QueryResultRow=any>(text: string, params?: unknown[]): Promise<QueryResult<T>> => {
+  return pool.query<T>(text, params);
 };

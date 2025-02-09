@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import Button from './components/Button';
+import Button from '../../components/Button';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function DashboardPage() {
