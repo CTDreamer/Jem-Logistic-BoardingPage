@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { QueryResult, QueryResultRow, FieldDef } from 'pg';
+import { QueryResult, QueryResultRow } from 'pg';
 
 // Inicializa Supabase
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
@@ -7,13 +7,13 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Función para realizar consultas
-export const query = async <T extends QueryResultRow = any, F extends FieldDef = any>(
+export const query = async <T extends QueryResultRow = any>(
   text: string,
   params?: unknown[]
-): Promise<QueryResult<T, F>> => {
+): Promise<QueryResult<T>> => {
   try {
     // Llama a la función RPC con el nombre y los parámetros
-    const { data, error } = await supabase.rpc(text, { params: params || [] });
+    const { data, error } = await supabase.rpc(text, params || []);
 
     if (error) {
       throw error; // Lanza el error si hay problemas con la consulta
@@ -23,7 +23,7 @@ export const query = async <T extends QueryResultRow = any, F extends FieldDef =
     return {
       rows: data as T[],               // Los datos obtenidos de la consulta
       rowCount: (data as T[]).length,  // El conteo de las filas devueltas
-      fields: [] as F[],               // Los campos no están disponibles, por lo que los dejamos vacíos
+      fields: [],                      // Los campos no están disponibles, por lo que los dejamos vacíos
       command: 'SELECT',               // Añadimos un valor predeterminado para 'command'
       oid: 0                           // Añadimos un valor predeterminado para 'oid'
     };
