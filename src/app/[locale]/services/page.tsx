@@ -1,3 +1,6 @@
+'use client'; // Marca este componente como un componente de cliente
+
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { FaFileInvoice, FaShippingFast, FaTools, FaTruck, FaPlane, FaShip } from 'react-icons/fa';
@@ -23,9 +26,14 @@ export default function Services({
 }) {
   const t = useTranslations('services');
   const selectedTab = searchParams.tab || 'jemLogistic';
-
-  // Usamos el locale del parámetro dinámico
   const locale = params.locale;
+
+  // Estado para manejar la visibilidad de la nota MISLOW
+  const [isMislowOpen, setIsMislowOpen] = useState(false);
+
+  const toggleMislow = () => {
+    setIsMislowOpen(!isMislowOpen);
+  };
 
   // Estilo de fondo por pestaña
   const tabBackgrounds: Record<string, string> = {
@@ -41,6 +49,7 @@ export default function Services({
         t('tariffs.import.detail1'),
         t('tariffs.import.detail2'),
         t('tariffs.import.detail3'),
+        t('tariffs.import.detail4'),
       ],
       icon: <FaFileInvoice />,
     },
@@ -50,6 +59,7 @@ export default function Services({
         t('tariffs.export.detail1'),
         t('tariffs.export.detail2'),
         t('tariffs.export.detail3'),
+        t('tariffs.export.detail4'),
       ],
       icon: <FaShippingFast />,
     },
@@ -283,6 +293,82 @@ export default function Services({
           <span>📞</span>
           <span>{t('cta.button')}</span>
         </Link>
+      </div>
+
+      {/* Botón para mostrar la nota MISLOW */}
+      <div className="text-center mt-12">
+        <button
+          onClick={toggleMislow}
+          className="px-8 py-4 bg-green-600 text-white text-lg font-bold rounded-lg shadow-md hover:bg-green-700 transition-all transform hover:scale-110"
+        >
+          Ver Nota MISLOW
+        </button>
+
+        {/* Mostrar la nota MISLOW */}
+        {isMislowOpen && (
+          <div className="mt-8 bg-gray-100 p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-bold text-blue-600 mb-4">IMPORTACIÓN:</h3>
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold">MARÍTIMA:</h4>
+              <ul className="list-disc pl-5 text-gray-600 space-y-2">
+                <li>DOCUMENTOS 40+IGV</li>
+                <li>TELEDESPACHO 50+IGV</li>
+                <li>GASTOS OPERATIVOS 120+IGV</li>
+                <li>PRECINTO 10+IGV</li>
+                <li>VUCE 30+IGV</li>
+                <li>MOVILIDAD 20+IGV</li>
+                <li>COMISIÓN 0.70% VALOR CIF +IGV</li>
+              </ul>
+            </div>
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold">AÉREO:</h4>
+              <ul className="list-disc pl-5 text-gray-600 space-y-2">
+                <li>DOCUMENTOS 40+IGV</li>
+                <li>TELEDESPACHO 50+IGV</li>
+                <li>GASTOS OPERATIVOS 120+IGV</li>
+                <li>VUCE 30+IGV</li>
+                <li>MOVILIDAD 20+IGV</li>
+                <li>COMISIÓN 0.60% VALOR CIF +IGV</li>
+              </ul>
+            </div>
+            <p className="italic text-gray-600">
+              El Servicio de Agenciamiento se factura según moneda comercial que el cliente desea (Soles o Dólares).
+              El Tipo de cambio SUNAT del día que se factura.
+              Tarifa Negociable según cliente.
+              La comisión mínima es de $140.00 DÓLARES.
+            </p>
+
+            <h3 className="text-xl font-bold text-blue-600 mt-8 mb-4">EXPORTACIÓN:</h3>
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold">MARÍTIMA:</h4>
+              <ul className="list-disc pl-5 text-gray-600 space-y-2">
+                <li>DOCUMENTOS 40+IGV</li>
+                <li>TELEDESPACHO 50+IGV</li>
+                <li>GASTOS OPERATIVOS 120+IGV</li>
+                <li>PRECINTO 10+IGV</li>
+                <li>MOVILIDAD 20+IGV</li>
+                <li>COMISIÓN 0.60% VALOR CIF +IGV</li>
+              </ul>
+            </div>
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold">AÉREO:</h4>
+              <ul className="list-disc pl-5 text-gray-600 space-y-2">
+                <li>TELEDESPACHO 50+IGV</li>
+                <li>GASTOS OPERATIVOS 120+IGV</li>
+                <li>PRECINTO 10+IGV</li>
+                <li>VUCE 30+IGV</li>
+                <li>MOVILIDAD 20+IGV</li>
+                <li>COMISIÓN 0.60% VALOR CIF +IGV</li>
+              </ul>
+            </div>
+            <p className="italic text-gray-600">
+              El Servicio de Agenciamiento se factura según moneda comercial que el cliente desea (Soles o Dólares).
+              El Tipo de cambio SUNAT del día que se factura.
+              Tarifa Negociable según cliente.
+              La comisión mínima es de $140.00 DÓLARES.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

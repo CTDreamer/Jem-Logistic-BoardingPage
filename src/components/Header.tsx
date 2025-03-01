@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from 'react';
 import LogoIcon from '../app/icons/logo';
 import LangSwitcher from './LangSwitcher';
 import { useAuth } from '@/components/AuthProvider';
+import { useRouter, usePathname } from "next/navigation";
 
 interface Props {
   locale: string;
@@ -15,6 +16,7 @@ export const Header: FC<Props> = ({ locale }) => {
   const { user, logout } = useAuth();
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +74,12 @@ export const Header: FC<Props> = ({ locale }) => {
               <span className="text-gray-500">Cargando...</span>
             ) : user ? (
               <div className="flex items-center space-x-4">
-                <span className="text-sm text-blue-700 font-medium">{user?.email}</span>
+                <button 
+                  onClick={() => router.push(`/${locale}/profile`)}
+                  className="px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition ml-3"
+                >
+                  Perfil
+                </button>
                 <button 
                   onClick={logout} 
                   className="bg-red-500 px-3 py-1 rounded text-white hover:bg-red-600 transition">

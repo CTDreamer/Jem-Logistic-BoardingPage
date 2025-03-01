@@ -31,6 +31,14 @@ export default function ProfilePage() {
       <h1 className="text-2xl font-bold mb-4">Perfil</h1>
       <p><strong>Email:</strong> {user?.email}</p>
       <p><strong>Rol:</strong> {user?.role}</p>
+
+      {/* 🔹 Botón para ir a la sección de Tracking */}
+      <button
+        onClick={() => router.push(`/${locale}/tracking`)}
+        className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+      >
+        Ver Tracking
+      </button>
     </div>
   );
 }

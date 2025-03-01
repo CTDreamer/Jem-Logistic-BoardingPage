@@ -103,13 +103,15 @@
         "title": "Importación",
         "detail1": "0.6% Comisión CIF",
         "detail2": "Comisión mínima USD 150.00",
-        "detail3": "Costos operativos USD 50.00"
+        "detail3": "Costos operativos USD 50.00",
+        "detail4": "Tiempo promedio de despacho: 72 horas."
       },
       "export": {
         "title": "Exportación",
         "detail1": "0.4% Comisión FOB",
         "detail2": "Comisión mínima USD 120.00",
-        "detail3": "Costos operativos USD 50.00"
+        "detail3": "Costos operativos USD 50.00",
+        "detail4": "Tiempo promedio de despacho: 24 horas."
       },
       "special": {
         "title": "Regímenes Especiales y/o Temporales",
