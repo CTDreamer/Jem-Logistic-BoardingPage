@@ -4,9 +4,7 @@ const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    runtime: 'nodejs',  // Cambiar el runtime a Node.js en lugar de Edge
-  },
+  // Aquí puedes añadir más configuraciones de Next.js si es necesario
 }
 
 module.exports = withNextIntl(nextConfig)
