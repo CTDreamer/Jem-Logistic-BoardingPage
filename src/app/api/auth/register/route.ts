@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import {query} from "@/db";
 
 export async function POST(req:Request) {
+    console.log(await query);
     try{
         const{email, password, role} = await req.json();
         const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -29,6 +30,9 @@ export async function POST(req:Request) {
       
         return NextResponse.json({ message: "Usuario registrado con éxito" });
     }catch(error){
+        if(error instanceof Error){
+            console.log(error.message);
+        }
         return NextResponse.json({ error: "Error interno del servidor" }, { status: 500 });
     }
 }

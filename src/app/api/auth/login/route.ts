@@ -7,6 +7,8 @@ const SECRET_KEY = process.env.NEXT_PUBLIC_JWT_SECRET_KEY as string;
 
 export async function POST(req: Request) {
   try {
+    console.log("Connection String:", process.env.NEXT_CONNECTION_STRING);
+
     const { email, password } = await req.json();
 
     // 🔹 Buscar usuario en la base de datos
