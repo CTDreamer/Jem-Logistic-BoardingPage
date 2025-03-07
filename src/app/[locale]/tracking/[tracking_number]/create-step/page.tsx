@@ -20,8 +20,8 @@ export default function CreateStepPage() {
     Direccionamiento: 1,
     Operaciones: 2,
     Retiro: 3,
-    "Proceso de Devolución": 4,
-    Facturación: 5,
+    "Proceso de Devolucion": 4,
+    Facturacion: 5,
   };
 
   // Calcular el orden del paso automáticamente
@@ -51,11 +51,11 @@ export default function CreateStepPage() {
       { key: "numero_ar", label: "Número de AR", type: "text" },
       { key: "fecha_retiro", label: "Fecha de Retiro", type: "date" },
     ],
-    "Proceso de Devolución": [
+    "Proceso de Devolucion": [
       { key: "deposito_devolucion", label: "Depósito de Devolución", type: "text" },
       { key: "cita_devolucion", label: "Cita de Devolución", type: "text" },
     ],
-    Facturación: [
+    Facturacion: [
       { key: "documentos_facturacion", label: "Documentos de Facturación", type: "file" },
       { key: "recepcion_facturacion", label: "Recepción de Facturación", type: "file" },
       { key: "saldo", label: "Saldo", type: "text" },
@@ -85,28 +85,20 @@ export default function CreateStepPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
     setLoading(true);
-
+    setError(null);
+  
     try {
-      const response = await fetch(`/api/tracking_steps/${tracking_number}`, { // Ruta de la API para crear el paso
+      const response = await fetch(`/api/tracking_steps/${tracking_number}`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          tracking_id: tracking_number, // Usamos el tracking_number como tracking_id
-          step_name: stepName,
-          data: stepData,
-          step_order: stepOrder,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ step_name: stepName, data: stepData, step_order: stepOrder }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
-        // Redirigir a la página de detalles del tracking después de crear el paso
-        router.push(`/es/tracking`);
+        router.push(`/es/tracking/${tracking_number}`); // ⬅️ Corrección aquí
       } else {
         setError(data.error || "Error al crear el paso");
       }
@@ -116,12 +108,20 @@ export default function CreateStepPage() {
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   // Función para manejar la subida de archivos
   const handleFileChange = (key: string, file: File) => {
-    setStepData({ ...stepData, [key]: file });
+    const reader = new FileReader();
+    reader.onload = () => {
+      setStepData((prev: Record<string, any>) => ({
+        ...prev,
+        [key]: reader.result,
+      }));
+    };
+    reader.readAsDataURL(file);
   };
+  
 
   if (!user || user.role !== "admin") {
     return <p className="text-center mt-8">No autorizado para crear pasos.</p>;
@@ -147,8 +147,8 @@ export default function CreateStepPage() {
             <option value="Direccionamiento">Direccionamiento</option>
             <option value="Operaciones">Operaciones</option>
             <option value="Retiro">Retiro</option>
-            <option value="Proceso de Devolución">Proceso de Devolución</option>
-            <option value="Facturación">Facturación</option>
+            <option value="Proceso de Devolucion">Proceso de Devolucion</option>
+            <option value="Facturacion">Facturacion</option>
           </select>
         </div>
 

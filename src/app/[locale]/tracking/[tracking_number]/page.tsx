@@ -1,32 +1,56 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react"; // Importa useEffect
-import { useAuth } from "@/components/AuthProvider"; // Importa el hook de autenticación
-import { useRouter } from "next/navigation"; // Importa useRouter
+import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/components/AuthProvider";
 
-export default function TrackingDetailsPage() {
-  const searchParams = useSearchParams();
-  const trackingData = searchParams.get("data");
-  const { user } = useAuth(); // Obtén el usuario actual
-  const router = useRouter(); // Inicializa el router
+export default function TrackingDetailPage() {
+  const { tracking_number } = useParams(); // Única declaración correcta
+  const router = useRouter();
+  const { user } = useAuth();
 
-  const [tracking, setTracking] = useState<any>(trackingData ? JSON.parse(trackingData) : null);
-  const [activeStep, setActiveStep] = useState<string | null>(null); // Paso activo (para mostrar su info)
-  const [isEditing, setIsEditing] = useState(false); // Estado para controlar la edición
-  const [formData, setFormData] = useState<any>({}); // Estado para almacenar los datos del formulario de edición
+  const [tracking, setTracking] = useState<any>(null);
+  const [activeStep, setActiveStep] = useState<string | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState<any>({});
+  const [error, setError] = useState<string | null>(null);
 
-  // Determinar los pasos según el tipo de carga
   const steps = tracking?.cargo_type === "FCL"
-    ? ["Direccionamiento", "Operaciones", "Retiro", "Proceso de Devolución", "Facturación"]
-    : ["Direccionamiento", "Operaciones", "Retiro", "Facturación"];
+    ? ["Direccionamiento", "Operaciones", "Retiro", "Proceso de Devolucion", "Facturacion"]
+    : ["Direccionamiento", "Operaciones", "Retiro", "Facturacion"];
 
-  // Obtener la información del paso activo
-  const activeStepData = tracking?.steps?.find(
-    (step: any) => step.step_name === activeStep
-  )?.data;
+  const fetchTrackingDetails = async () => {
+    try {
+      const response = await fetch(`/api/tracking/${tracking_number}`);
+      const data = await response.json();
 
-  // Función para manejar la edición de un paso
+      if (response.ok) {
+        setTracking(data);
+      } else {
+        console.error("Tracking no encontrado:", data.error);
+        setTracking(null);
+      }
+    } catch (error) {
+      console.error("Error obteniendo tracking:", error);
+      setTracking(null);
+    }
+  };
+
+  const initializeFormData = () => {
+    const stepToEdit = tracking?.steps?.find((step: any) => step.step_name === activeStep);
+  
+    if (!stepToEdit || typeof stepToEdit.data !== "object") {
+      setFormData({ data: {}, completed: false });
+      return;
+    }
+  
+    setFormData({
+      data: stepToEdit.data ?? {}, // Asegura que siempre sea un objeto
+      completed: stepToEdit.completed ?? false,
+    });
+  };
+  
+
   const handleEdit = async () => {
     if (!activeStep) return;
 
@@ -36,87 +60,77 @@ export default function TrackingDetailsPage() {
     try {
       const response = await fetch(`/api/tracking_steps/${stepToEdit.id}`, {
         method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        // Actualizar el estado local con los nuevos datos
-        const updatedSteps = tracking.steps.map((step: any) =>
-          step.id === stepToEdit.id ? { ...step, ...data.tracking_step } : step
-        );
-        setTracking({ ...tracking, steps: updatedSteps });
-        setIsEditing(false); // Salir del modo de edición
+        setTracking((prevTracking: any) => ({
+          ...prevTracking,
+          steps: prevTracking.steps.map((step: any) =>
+            step.id === stepToEdit.id ? data.tracking_step : step
+          ),
+        }));
+        setIsEditing(false);
       } else {
-        console.error("Error al actualizar el paso:", data.error);
+        console.error("Error al editar el paso:", data.error);
       }
     } catch (error) {
-      console.error("Error en la solicitud PATCH:", error);
+      console.error("Error en PATCH:", error);
     }
   };
 
-  // Inicializar el formulario con los datos del paso activo
-  const initializeFormData = () => {
-    if (activeStepData) {
-      setFormData({
-        data: { ...activeStepData }, // Copia de los datos del paso
-        completed: tracking.steps.find((step: any) => step.step_name === activeStep)?.completed || false,
-      });
-    }
-  };
-
-  // Actualizar el formulario cuando cambia el paso activo
   useEffect(() => {
-    if (activeStep) {
+    fetchTrackingDetails();
+  }, [tracking_number]);
+
+  useEffect(() => {
+    if (tracking && activeStep && isEditing) {
       initializeFormData();
     }
-  }, [activeStep]); // Dependencia: activeStep
+  }, [tracking, activeStep, isEditing]);
 
   if (!tracking) {
-    return <p className="text-center">No se encontró el tracking.</p>;
+    return <p className="text-center mt-8">Cargando ...</p>;
   }
+
+  const activeStepData = tracking.steps?.find((step: any) => step.step_name === activeStep)?.data;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
-      <h1 className="text-2xl font-bold mb-4 text-blue-800">Detalles del Tracking: {tracking.tracking_number}</h1>
+      <h1 className="text-2xl font-bold mb-4 text-blue-800">
+        Detalles del Tracking: {tracking.tracking_number}
+      </h1>
 
-      {/* Información general del tracking */}
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-3xl mb-6">
+      <div className="bg-white p-6 rounded-md shadow-md w-full max-w-3xl">
         <p><strong>Tipo de Carga:</strong> {tracking.cargo_type}</p>
         <p><strong>Estado:</strong> {tracking.status}</p>
         <p><strong>Fecha de Llegada:</strong> {tracking.arrival_date}</p>
       </div>
 
-      {/* Botón "Crear Paso" para administradores */}
       {user?.role === "admin" && (
-        <div className="mt-4 mb-6"> {/* Añadí mb-6 para dar más espacio debajo del botón */}
-          <button
-            onClick={() => router.push(`/es/tracking/${tracking.tracking_number}/create-step`)}
-            className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300"
-          >
-            Crear Paso
-          </button>
-        </div>
+        <button
+          onClick={() => router.push(`/es/tracking/${tracking_number}/create-step`)}
+          className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+        >
+          Crear Paso
+        </button>
       )}
 
-      {/* Botones de pasos */}
-      <div className="flex flex-wrap gap-2 justify-center mb-6">
+      <div className="flex flex-wrap gap-2 justify-center mt-6">
         {steps.map((step) => {
-          const stepData = tracking?.steps?.find((s: any) => s.step_name === step);
-          const isCompleted = stepData?.completed;
-
+          const stepInfo = tracking.steps?.find((s: any) => s.step_name === step);
           return (
             <button
               key={step}
-              onClick={() => setActiveStep(step)}
+              onClick={() => {
+                setActiveStep(step);
+                setIsEditing(false);
+              }}
               className={`px-4 py-2 rounded-md ${
-                isCompleted
-                  ? "bg-blue-200 text-blue-800 hover:bg-blue-300" // Azul claro para completados
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300" // Gris para no completados
+                stepInfo?.completed ? "bg-blue-200 text-blue-800" : "bg-gray-200 text-gray-700"
               }`}
             >
               {step}
@@ -124,94 +138,134 @@ export default function TrackingDetailsPage() {
           );
         })}
       </div>
-
-      {/* Información del paso activo */}
-      {activeStepData && (
-        <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-3xl">
-          <h2 className="text-xl font-bold mb-4 text-blue-800">{activeStep}</h2>
-          <div className="space-y-2">
-            {Object.entries(activeStepData).map(([key, value]) => (
-              <div key={key} className="flex justify-between border-b pb-2">
-                <span className="font-semibold">{key}:</span>
-                <span>{String(value)}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Botón de editar (solo para admin) */}
-          {user?.role === "admin" && (
-            <div className="mt-4">
-              <button
-                onClick={() => {
-                  setIsEditing(!isEditing);
-                  initializeFormData(); // Inicializar el formulario al entrar en modo edición
-                }}
-                className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition duration-300"
+        
+      {activeStep && tracking.steps?.filter((step: any) => step.step_name === activeStep).map((step: any) => (
+        <div key={step.id} className="mt-6 w-full max-w-3xl bg-white p-6 rounded-md shadow-md">
+          {Object.entries(step.data).map(([key, value]) => (
+            <p key={key}>
+              <strong>{key}:</strong>{" "}
+              {typeof value === "string" && value.startsWith("data:image") ? (
+                <a
+                href={activeStepData.pagos_proforma}
+                download="imagen_proforma.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline cursor-pointer"
               >
-                {isEditing ? "Cancelar Edición" : "Editar Paso"}
-              </button>
-            </div>
+                Ver imagen
+              </a>
+
+              ) : (
+                String(value)
+              )}
+            </p>
+          ))}
+          <p><strong>Completado:</strong> {step.completed ? "Sí" : "No"}</p>
+
+          {user?.role === "admin" && (
+            <button
+              onClick={() => setIsEditing(!isEditing)}
+              className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded-md"
+            >
+              {isEditing ? "Cancelar Edición" : "Editar Paso"}
+            </button>
           )}
 
-          {/* Formulario de edición (solo visible en modo edición) */}
           {isEditing && (
-            <div className="mt-4">
-              <h3 className="text-lg font-semibold mb-2 text-blue-800">Editar Paso: {activeStep}</h3>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleEdit();
-                }}
-              >
-                <div className="space-y-4">
-                  {/* Campos dinámicos para los datos del paso */}
-                  {Object.entries(activeStepData).map(([key, value]) => (
-                    <div key={key} className="space-y-1">
-                      <label className="block text-sm font-medium text-gray-700">
-                        {key}:
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.data?.[key] || ""}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            data: { ...formData.data, [key]: e.target.value },
-                          })
-                        }
-                        className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm"
-                      />
+            <form 
+              onSubmit={(e) => { 
+                e.preventDefault(); 
+                handleEdit(); 
+              }} 
+              className="mt-4 space-y-4 w-full"
+            >
+              {formData.data && Object.entries(formData.data).length > 0 ? (
+                Object.entries(formData.data).map(([key, value]) => {
+                  // Detectar tipo de campo
+                  const isDateField = key.toLowerCase().includes("fecha");
+                  const isFileField = key.toLowerCase().includes("pdf") || key.toLowerCase().includes("imagen");
+
+                  return (
+                    <div key={key} className="flex flex-col">
+                      <label className="text-gray-700 font-medium">{key}</label>
+
+                      {isDateField ? (
+                        // Campo de Fecha
+                        <input
+                          type="date"
+                          value={String(value)}
+                          onChange={(e) =>
+                            setFormData((prev: any) => ({
+                              ...prev,
+                              data: { ...prev.data, [key]: e.target.value },
+                            }))
+                          }
+                          className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                      ) : isFileField ? (
+                        // Campo de Subida de Archivos
+                        <input
+                          type="file"
+                          accept=".jpg,.jpeg,.png,.pdf"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              const reader = new FileReader();
+                              reader.onloadend = () => {
+                                setFormData((prev: any) => ({
+                                  ...prev,
+                                  data: { ...prev.data, [key]: reader.result },
+                                }));
+                              };
+                              reader.readAsDataURL(file);
+                            }
+                          }}
+                          className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                      ) : (
+                        // Campo de Texto Normal
+                        <input
+                          type="text"
+                          value={String(value)}
+                          onChange={(e) =>
+                            setFormData((prev: any) => ({
+                              ...prev,
+                              data: { ...prev.data, [key]: e.target.value },
+                            }))
+                          }
+                          className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        />
+                      )}
                     </div>
-                  ))}
+                  );
+                })
+              ) : (
+                <p className="text-gray-500 italic">No hay datos para editar.</p>
+              )}
 
-                  {/* Campo completado */}
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={formData.completed || false}
-                      onChange={(e) =>
-                        setFormData({ ...formData, completed: e.target.checked })
-                      }
-                      className="h-4 w-4 text-blue-600 border-gray-300 rounded"
-                    />
-                    <label className="text-sm font-medium text-gray-700">
-                      Completado
-                    </label>
-                  </div>
-                </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={formData.completed}
+                  onChange={(e) => setFormData({ ...formData, completed: e.target.checked })}
+                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                />
+                <label className="text-gray-700 font-medium">Completado</label>
+              </div>
 
-                {/* Botón de guardar cambios */}
+              <div className="flex gap-2 mt-4">
                 <button
                   type="submit"
-                  className="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
                 >
                   Guardar Cambios
                 </button>
-              </form>
-            </div>
+              </div>
+            </form>
           )}
+
         </div>
-      )}
+      ))}
     </div>
   );
 }

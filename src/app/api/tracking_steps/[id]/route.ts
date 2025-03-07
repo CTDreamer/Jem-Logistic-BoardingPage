@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/db';
 import { authenticateRequest } from '@/lib/auth';
+import { uploadFile } from '@/lib/supabase'; // Tu función para subir a supabase
 
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -118,67 +119,67 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 
 export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    // Autenticar la solicitud
     const { user, response } = authenticateRequest(req);
+    console.log("User desde authenticateRequest:", user); // Depuración rápida
     if (!user) return response;
 
     if (user.role !== "admin") {
       return NextResponse.json({ error: "No autorizado para agregar pasos" }, { status: 403 });
     }
 
-    const { step_name, data } = await req.json();
-    const tracking_number = params.id;  // Usamos el parámetro `id` de la URL
+    let { step_name, data } = await req.json();
+    const tracking_number = params.id;
 
-    // Validación del paso
-    const validStepNames = [
-      "Direccionamiento",
-      "Operaciones",
-      "Retiro",
-      "Proceso de Devolucion",  // Asegúrate de que sea sin tilde
-      "Facturacion"
-    ];
-
+    const validStepNames = ["Direccionamiento", "Operaciones", "Retiro", "Proceso de Devolucion", "Facturacion"];
     if (!validStepNames.includes(step_name)) {
+      console.error("❌ Paso inválido:", step_name);
       return NextResponse.json({ error: "Paso inválido" }, { status: 400 });
     }
 
-    // Buscar el tracking_id a partir del tracking_number
     const trackingQuery = `SELECT id FROM tracking WHERE tracking_number = $1`;
     const trackingResult = await query(trackingQuery, [tracking_number]);
-
     if (trackingResult.rows.length === 0) {
       return NextResponse.json({ error: "Tracking no encontrado" }, { status: 404 });
     }
 
-    // Obtener el tracking_id
     const tracking_id = trackingResult.rows[0].id;
 
-    // Verificar si el paso ya ha sido creado para este tracking_id y step_name
-    const checkExistingStepQuery = `
-      SELECT * FROM tracking_steps 
-      WHERE tracking_id = $1 AND step_name = $2
-    `;
-    const existingStep = await query(checkExistingStepQuery, [tracking_id, step_name]);
+    const existingStep = await query(
+      `SELECT * FROM tracking_steps WHERE tracking_id = $1 AND step_name = $2`,
+      [tracking_id, step_name]
+    );
 
     if (existingStep.rows.length > 0) {
       return NextResponse.json({ error: "Este paso ya fue creado para este tracking" }, { status: 400 });
     }
 
-    // Obtener el último step_order para este tracking_id
-    const lastStepQuery = `SELECT MAX(step_order) FROM tracking_steps WHERE tracking_id = $1`;
-    const lastStepResult = await query(lastStepQuery, [tracking_id]);
+    const lastStepResult = await query(`SELECT MAX(step_order) FROM tracking_steps WHERE tracking_id = $1`, [tracking_id]);
     const nextStepOrder = (lastStepResult.rows[0].max || 0) + 1;
 
-    // Crear el paso en la base de datos y marcarlo como completed: true
+    // Subir archivos a Supabase si existen campos con archivos (base64)
+    for (const key in data) {
+      if (typeof data[key] === 'string' && data[key].startsWith('data:')) {
+        const fileExtension = data[key].includes('pdf') ? '.pdf' : '.png';
+        const filePath = `tracking/${tracking_number}/${step_name}/${key}-${Date.now()}${fileExtension}`;
+        const publicUrl = await uploadFile(data[key], filePath);
+        data[key] = publicUrl; // Reemplazar base64 por la URL pública
+      }
+    }
+
+    console.log("Data recibida desde frontend:", data);
+
     const result = await query(
-      `INSERT INTO tracking_steps (tracking_id, step_name, data, step_order, completed) 
+      `INSERT INTO tracking_steps (tracking_id, step_name, data, step_order, completed)
        VALUES ($1, $2, $3, $4, true) RETURNING *`,
-      [tracking_id, step_name, JSON.stringify(data), nextStepOrder]
+      [tracking_id, step_name, data, nextStepOrder]
     );
 
     return NextResponse.json({ message: "Paso agregado exitosamente", tracking_step: result.rows[0] }, { status: 201 });
+
   } catch (error) {
     console.error("Error en la solicitud POST:", error);
     return NextResponse.json({ error: "Error interno del servidor" }, { status: 500 });
   }
 }
+
+
