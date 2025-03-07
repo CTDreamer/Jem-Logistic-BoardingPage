@@ -139,27 +139,60 @@ export default function TrackingDetailPage() {
         })}
       </div>
         
-      {activeStep && tracking.steps?.filter((step: any) => step.step_name === activeStep).map((step: any) => (
-        <div key={step.id} className="mt-6 w-full max-w-3xl bg-white p-6 rounded-md shadow-md">
-          {Object.entries(step.data).map(([key, value]) => (
-            <p key={key}>
-              <strong>{key}:</strong>{" "}
-              {typeof value === "string" && value.startsWith("data:image") ? (
-                <a
-                href={activeStepData.pagos_proforma}
-                download="imagen_proforma.jpg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 underline cursor-pointer"
-              >
-                Ver imagen
-              </a>
+      {activeStep && tracking.steps
+        ?.filter((step: any) => step.step_name === activeStep)
+        .map((step: any) => (
+          <div key={step.id} className="mt-6 w-full max-w-3xl bg-white p-6 rounded-md shadow-md">
+            {Object.entries(step.data).map(([key, value]) => {
+              // Verifica si el valor es una imagen en Base64
+              const isBase64Image = typeof value === "string" && value.startsWith("data:image");
 
-              ) : (
-                String(value)
-              )}
-            </p>
-          ))}
+              // Verifica si es una URL (imagen o documento)
+              const isURL = typeof value === "string" && value.startsWith("http");
+
+              return (
+                <p key={key}>
+                  <strong>{key.replace(/_/g, " ")}:</strong>{" "}
+                  {isBase64Image ? (
+                    // Muestra un enlace de descarga si es base64
+                    <a
+                      href={value}
+                      download="imagen_proforma.jpg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 underline cursor-pointer"
+                    >
+                      Ver imagen
+                    </a>
+                  ) : isURL ? (
+                    // Detecta si es una imagen o un documento
+                    value.match(/\.(jpeg|jpg|gif|png)$/) ? (
+                      <a
+                        href={value}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline cursor-pointer"
+                      >
+                        Ver imagen
+                      </a>
+                    ) : (
+                      <a
+                        href={value}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline cursor-pointer"
+                      >
+                        Descargar documento
+                      </a>
+                    )
+                  ) : (
+                    String(value)
+                  )}
+                </p>
+              );
+            })}
+
           <p><strong>Completado:</strong> {step.completed ? "Sí" : "No"}</p>
 
           {user?.role === "admin" && (
